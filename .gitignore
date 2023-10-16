@@ -1,0 +1,13 @@
+.idea/
+/tests/behat.yml
+/tests/.phpunit.result.cache
+/vendor/
+/public/assets/*
+*.cache
+*.phar
+.ddev
+/public/*.html
+/database/structure/update*.sql
+/public/api/doc/swagger.json
+/.env
+coverage.xml
