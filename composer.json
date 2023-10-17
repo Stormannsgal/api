@@ -20,7 +20,7 @@
             "laminas/laminas-component-installer": true
         },
         "platform": {
-            "php": "8.0.99"
+            "php": "8.2.0"
         }
     },
     "extra": {
@@ -45,7 +45,8 @@
         "laminas/laminas-stdlib": "^3.6",
         "mezzio/mezzio": "^3.7",
         "mezzio/mezzio-fastroute": "^3.0.3",
-        "mezzio/mezzio-helpers": "^5.7"
+        "mezzio/mezzio-helpers": "^5.7",
+        "zircote/swagger-php": "^4.7"
     },
     "require-dev": {
         "filp/whoops": "^2.7.1",
@@ -77,6 +78,7 @@
         "mezzio": "laminas --ansi",
         "clear-config-cache": "php bin/clear-config-cache.php",
         "enable-codestandard": "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run",
+        "openapi": "php ./vendor/bin/openapi ./src -f json -o ./public/api/docs/swagger.json",
         "phplint": "vendor/bin/phplint",
         "phpcs": "phpcs --standard=phpcs.xml -s",
         "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon",
