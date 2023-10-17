@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace AppTest\Handler;
 
@@ -19,11 +17,11 @@ class PingHandlerTest extends TestCase
     public function testResponse(): void
     {
         $pingHandler = new PingHandler();
-        $response    = $pingHandler->handle(
+        $response = $pingHandler->handle(
             $this->createMock(ServerRequestInterface::class)
         );
 
-        $json = json_decode((string) $response->getBody(), null, 512, JSON_THROW_ON_ERROR);
+        $json = json_decode((string)$response->getBody(), null, 512, JSON_THROW_ON_ERROR);
 
         self::assertInstanceOf(JsonResponse::class, $response);
         self::assertTrue(property_exists($json, 'ack') && $json->ack !== null);

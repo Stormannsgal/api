@@ -19,7 +19,7 @@ class ConfigProvider
             'invokables' => [
                 PingHandler::class => PingHandler::class,
             ],
-            'factories'  => [
+            'factories' => [
 
             ],
         ];
