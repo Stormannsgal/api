@@ -4,7 +4,8 @@
     "type": "project",
     "license": "BSD-3-Clause",
     "keywords": [
-        "Browsergame"
+        "Browsergame",
+        "OpenSource"
     ],
     "homepage": "https://github.com/Stormannsgal",
     "support": {
