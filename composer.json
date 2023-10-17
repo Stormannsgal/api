@@ -36,6 +36,9 @@
     },
     "require": {
         "php": "~8.2.0",
+        "ext-json": "*",
+        "ext-openssl": "*",
+        "ext-pdo": "*",
         "composer/package-versions-deprecated": "^1.10.99",
         "jetbrains/phpstorm-attributes": "^1.0",
         "laminas/laminas-component-installer": "^2.6 || ^3.0",

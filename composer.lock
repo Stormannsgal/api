@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "176f2efa382b8ed1043bc9e02849236a",
+    "content-hash": "ff6b22c2f08849b47676ac1039b0493c",
     "packages": [
         {
             "name": "brick/varexporter",
@@ -3537,12 +3537,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "4df0c7747ada158a5f09b03c22d3ded20d65dfd7"
+                "reference": "b09651470b653a4a547d0d5f6159fefeefb234e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/4df0c7747ada158a5f09b03c22d3ded20d65dfd7",
-                "reference": "4df0c7747ada158a5f09b03c22d3ded20d65dfd7",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/b09651470b653a4a547d0d5f6159fefeefb234e1",
+                "reference": "b09651470b653a4a547d0d5f6159fefeefb234e1",
                 "shasum": ""
             },
             "conflict": {
@@ -3682,7 +3682,7 @@
                 "ezsystems/ezplatform-richtext": ">=2.3,<2.3.7.1-dev",
                 "ezsystems/ezplatform-user": ">=1,<1.0.1",
                 "ezsystems/ezpublish-kernel": "<6.13.8.2-dev|>=7,<7.5.30",
-                "ezsystems/ezpublish-legacy": "<=2017.12.7.3|>=2018.06,<=2019.03.5.1",
+                "ezsystems/ezpublish-legacy": "<=2017.12.7.3|>=2018.6,<=2019.03.5.1",
                 "ezsystems/platform-ui-assets-bundle": ">=4.2,<4.2.3",
                 "ezsystems/repository-forms": ">=2.3,<2.3.2.1-dev|>=2.5,<2.5.15",
                 "ezyang/htmlpurifier": "<4.1.1",
@@ -4209,7 +4209,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-10-17T21:04:33+00:00"
+            "time": "2023-10-17T22:04:25+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -6411,7 +6411,10 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "~8.2.0"
+        "php": "~8.2.0",
+        "ext-json": "*",
+        "ext-openssl": "*",
+        "ext-pdo": "*"
     },
     "platform-dev": [],
     "platform-overrides": {
