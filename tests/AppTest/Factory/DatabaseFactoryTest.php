@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace AppTest\Factory;
+namespace Stormannsgal\AppTest\Factory;
 
-use App\Factory\DatabaseFactory;
-use AppTest\Mock\MockContainer;
+use Stormannsgal\App\Factory\DatabaseFactory;
+use Stormannsgal\AppTest\Mock\MockContainer;
 use PDO;
 use PDOException;
 use PHPUnit\Framework\TestCase;

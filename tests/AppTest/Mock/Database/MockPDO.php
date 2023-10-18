@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace AppTest\Mock\Database;
+namespace Stormannsgal\AppTest\Mock\Database;
 
 use PDO;
 

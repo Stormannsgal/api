@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Handler\PingHandler;
+use Stormannsgal\App\Handler\PingHandler;
 use Mezzio\Application;
 use Mezzio\MiddlewareFactory;
 use Psr\Container\ContainerInterface;
