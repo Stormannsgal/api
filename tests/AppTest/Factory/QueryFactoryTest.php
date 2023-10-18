@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace AppTest\Factory;
+namespace Stormannsgal\AppTest\Factory;
 
-use App\Factory\QueryFactory;
-use AppTest\Mock\Database\MockPDO;
-use AppTest\Mock\MockContainer;
+use Stormannsgal\App\Factory\QueryFactory;
+use Stormannsgal\AppTest\Mock\Database\MockPDO;
+use Stormannsgal\AppTest\Mock\MockContainer;
 use Envms\FluentPDO\Query;
 use PDO;
 use PHPUnit\Framework\TestCase;

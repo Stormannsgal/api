@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Factory;
+namespace Stormannsgal\App\Factory;
 
 use Envms\FluentPDO\Query;
 use PDO;

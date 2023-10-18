@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace App;
+namespace Stormannsgal\App;
 
-use App\Handler\PingHandler;
+use Stormannsgal\App\Handler\PingHandler;
 
 class ConfigProvider
 {

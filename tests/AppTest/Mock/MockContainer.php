@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace AppTest\Mock;
+namespace Stormannsgal\AppTest\Mock;
 
 use Psr\Container\ContainerInterface;
 
