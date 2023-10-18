@@ -20,8 +20,8 @@ return [
         ],
         // Use 'factories' for services provided by callbacks/factory classes.
         'factories' => [
-            'database' => App\Factory\DatabaseFactory::class,
-            'query' => App\Factory\QueryFactory::class,
+            'database' => Stormannsgal\App\Factory\DatabaseFactory::class,
+            'query' => Stormannsgal\App\Factory\QueryFactory::class,
         ],
     ],
 ];
