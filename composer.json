@@ -54,6 +54,7 @@
         "mezzio/mezzio": "^3.7",
         "mezzio/mezzio-fastroute": "^3.0.3",
         "mezzio/mezzio-helpers": "^5.7",
+        "ramsey/uuid": "^4.7",
         "zircote/swagger-php": "^4.7"
     },
     "require-dev": {
