@@ -10,7 +10,7 @@
                 "tags": [
                     "System Information"
                 ],
-                "operationId": "5fb46941c75459cca3eaa340cd9ed955",
+                "operationId": "87540e06d61c7bf3e9cf05fe569ed2ee",
                 "responses": {
                     "200": {
                         "description": "Success",

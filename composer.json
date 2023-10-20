@@ -70,12 +70,16 @@
     },
     "autoload": {
         "psr-4": {
-            "Stormannsgal\\App\\": "src/App/"
+            "Stormannsgal\\App\\": "src/App/",
+            "Stormannsgal\\Core\\": "src/Core/",
+            "Stormannsgal\\Game\\": "src/Game/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Stormannsgal\\AppTest\\": "tests/AppTest/"
+            "Stormannsgal\\AppTest\\": "tests/AppTest/",
+            "Stormannsgal\\CoreTest\\": "tests/CoreTest/",
+            "Stormannsgal\\GameTest\\": "tests/GameTest/"
         }
     },
     "scripts": {
