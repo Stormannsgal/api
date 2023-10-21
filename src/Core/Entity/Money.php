@@ -2,14 +2,9 @@
 
 namespace Stormannsgal\Core\Entity;
 
-class Money
+interface Money
 {
-    private int $bronze;
-    private int $silver;
-    private int $gold;
+    public function getMoney(): int;
 
-    public function toString(): string
-    {
-        return sprintf('Gold: %d - Silber: %d - Bronze: %d', $this->gold, $this->silver, $this->bronze);
-    }
+    public function __toString(): string;
 }
