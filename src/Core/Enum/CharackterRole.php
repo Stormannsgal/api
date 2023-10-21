@@ -4,16 +4,18 @@ namespace Stormannsgal\Core\Enum;
 
 enum CharackterRole: int
 {
-    case DEALER = 1;
-    case PIRATE = 2;
-    case PRODUCER = 3;
+    case PRODUCER = 1;
+    case DEALER = 2;
+    case PIRATE = 3;
+    case BOUNTY_HUNTER = 4;
 
     public function getRoleName(): string
     {
         return match ($this) {
+            CharackterRole::PRODUCER => 'Hersteller',
             CharackterRole::DEALER => 'Händler',
             CharackterRole::PIRATE => 'Pirat',
-            CharackterRole::PRODUCER => 'Hersteller'
+            CharackterRole::BOUNTY_HUNTER => 'Kopfgeldjäger'
         };
     }
 }
