@@ -2,11 +2,7 @@
 
 namespace Stormannsgal\Core\Utils;
 
-use ArrayAccess;
 use Closure;
-use Countable;
-use Iterator;
-use JsonSerializable;
 use Stormannsgal\Core\Exception\UndefinedOffsetException;
 
 use function array_filter;
@@ -16,7 +12,7 @@ use function count;
 use function is_null;
 use function sprintf;
 
-abstract class Collection implements Countable, ArrayAccess, Iterator, JsonSerializable
+abstract class Collection implements CollectionInterface
 {
     /**
      * @param array<Collectible> $collection

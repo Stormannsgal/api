@@ -36,6 +36,6 @@ class SwaggerUIHandler implements RequestHandlerInterface
             return new HtmlResponse(file_get_contents($indexFile));
         }
 
-        return new JsonResponse('', HTTP::STATUS_NO_CONTENT);
+        return new JsonResponse([], HTTP::STATUS_NO_CONTENT);
     }
 }

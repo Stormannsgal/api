@@ -2,7 +2,7 @@
 
 namespace Stormannsgal\Core\Entity;
 
-use Stormannsgal\Core\Enum\LocationType;
+use Stormannsgal\Game\Enum\LocationType;
 
 interface Location
 {

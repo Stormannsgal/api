@@ -3,12 +3,14 @@
 namespace Stormannsgal\Core\Entity;
 
 use DateTimeImmutable;
-use Stormannsgal\Core\Enum\AccountRole;
-use Stormannsgal\Core\Enum\AccountVisibleStatus;
+use Stormannsgal\App\Enum\AccountRole;
+use Stormannsgal\App\Enum\AccountVisibleStatus;
 
 interface Account
 {
-    public function getId(): string;
+    public function getId(): int;
+
+    public function getUuid(): string;
 
     public function getName(): string;
 
@@ -18,19 +20,5 @@ interface Account
 
     public function getRole(): AccountRole;
 
-    public function getVisibleStatus(): AccountVisibleStatus;
-
-    public function hasCharacters(): bool;
-
-    public function countCharacters(): int;
-
-    public function getCharacters(): int;
-
-    public function getCreatedAt(): DateTimeImmutable;
-
-    public function isActivated(): bool;
-
-    public function isLocked(): bool;
-
-    public function isDeleted(): bool;
+    public function getLastAction(): DateTimeImmutable;
 }
