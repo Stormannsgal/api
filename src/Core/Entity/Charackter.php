@@ -2,8 +2,8 @@
 
 namespace Stormannsgal\Core\Entity;
 
-use Stormannsgal\Core\Enum\CharackterPermission;
-use Stormannsgal\Core\Enum\CharackterRole;
+use Stormannsgal\Game\Enum\CharacterPermission;
+use Stormannsgal\Game\Enum\CharackterRole;
 
 interface Charackter
 {
@@ -13,9 +13,9 @@ interface Charackter
 
     public function getRole(): CharackterRole;
 
-    public function getPermission(): CharackterPermission;
+    public function getPermission(): CharacterPermission;
 
-    public function getMoney(): Money;
+    public function getMoney(): Capital;
 
     public function isLocked(): bool;
 

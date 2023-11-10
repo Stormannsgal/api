@@ -16,3 +16,4 @@ coverage.xml
 /clover.xml
 /coveralls-upload.json
 /phpunit.xml
+/public/test.php
