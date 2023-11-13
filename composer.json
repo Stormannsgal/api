@@ -95,7 +95,8 @@
         "doctrine": "php ./bin/migrations.php",
         "openapi": "php ./vendor/bin/openapi ./src -f json -o ./public/api/docs/swagger.json",
         "phplint": "vendor/bin/phplint",
-        "phpcs": "phpcs --standard=phpcs.xml -s",
+        "phpcs": "phpcs --standard=phpcs.xml -s -p",
+        "phpcbf": "phpcbf --standard=phpcs.xml -p",
         "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon",
         "test": "XDEBUG_MODE=coverage ./vendor/bin/phpunit",
         "check": [

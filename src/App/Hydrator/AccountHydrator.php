@@ -8,37 +8,20 @@ use InvalidArgumentException;
 use Stormannsgal\App\Entity\Account;
 use Stormannsgal\App\Enum\AccountRole;
 use Stormannsgal\Core\Entity\Account as AccountInterface;
+use Stormannsgal\Core\Hydrator\Hydrator;
 
-use function array_diff;
-use function array_keys;
-
-class AccountHydrator
+class AccountHydrator extends Hydrator
 {
-    private const ACCOUNT_FIELDS
-        = [
-            'id',
-            'uuid',
-            'roleId',
-            'name',
-            'password',
-            'email',
-            'lastAction',
-        ];
-
     /**
      * @throws Exception
      * @throws InvalidArgumentException
      */
-    public function hydrate(array $accountData): AccountInterface
+    public function hydrate(array $data): AccountInterface
     {
-        if (!empty(array_diff(self::ACCOUNT_FIELDS, array_keys($accountData)))) {
-            throw new InvalidArgumentException('Transmitted data differs from expected data');
-        }
+        $data['role'] = AccountRole::from($data['roleId']);
+        unset($data['roleId']);
+        $data['lastAction'] = new DateTimeImmutable($data['lastAction']);
 
-        $accountData['role'] = AccountRole::from($accountData['roleId']);
-        unset($accountData['roleId']);
-        $accountData['lastAction'] = new DateTimeImmutable($accountData['lastAction']);
-
-        return new Account(...$accountData);
+        return new Account(...$data);
     }
 }
