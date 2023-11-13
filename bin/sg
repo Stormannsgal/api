@@ -88,6 +88,10 @@ case $1 in
     docker-compose run --rm php composer "${@:2}"
     ;;
 
+  "indocker")
+    docker-compose run --rm php "${@:2}"
+    ;;
+
   *)
 
     ;;

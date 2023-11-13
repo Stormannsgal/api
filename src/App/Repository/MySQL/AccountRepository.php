@@ -2,6 +2,7 @@
 
 namespace Stormannsgal\App\Repository\MySQL;
 
+use Envms\FluentPDO\Exception;
 use Stormannsgal\App\Entity\AccountCollection;
 use Stormannsgal\App\Hydrator\AccountHydrator;
 use Stormannsgal\App\Table\AccountTable;
@@ -20,6 +21,11 @@ readonly class AccountRepository implements AccountRepositoryInterface
     ) {
     }
 
+    /**
+     * @throws Exception
+     * @throws EmptyResultException
+     * @throws \Exception
+     */
     public function findById(int $id): Account
     {
         $account = $this->table->findById($id);
@@ -33,6 +39,11 @@ readonly class AccountRepository implements AccountRepositoryInterface
         return $this->hydrator->hydrate($account);
     }
 
+    /**
+     * @throws Exception
+     * @throws EmptyResultException
+     * @throws \Exception
+     */
     public function findByUuid(string $uuid): Account
     {
         $account = $this->table->findByUuid($uuid);
@@ -46,6 +57,10 @@ readonly class AccountRepository implements AccountRepositoryInterface
         return $this->hydrator->hydrate($account);
     }
 
+    /**
+     * @throws Exception
+     * @throws EmptyResultException
+     */
     public function findByName(string $name): Account
     {
         $account = $this->table->findByName($name);
@@ -59,6 +74,10 @@ readonly class AccountRepository implements AccountRepositoryInterface
         return $this->hydrator->hydrate($account);
     }
 
+    /**
+     * @throws Exception
+     * @throws EmptyResultException
+     */
     public function findByEmail(string $email): Account
     {
         $account = $this->table->findByEmail($email);
@@ -72,13 +91,12 @@ readonly class AccountRepository implements AccountRepositoryInterface
         return $this->hydrator->hydrate($account);
     }
 
+    /**
+     * @throws Exception
+     */
     public function findAll(): AccountCollectionInterface
     {
         $accounts = $this->table->findAll();
-
-        if (empty($accounts)) {
-            throw new EmptyResultException();
-        }
 
         $accountCollection = new AccountCollection();
 
