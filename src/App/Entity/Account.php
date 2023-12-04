@@ -3,8 +3,10 @@
 namespace Stormannsgal\App\Entity;
 
 use DateTimeImmutable;
+use Ramsey\Uuid\UuidInterface;
 use Stormannsgal\App\Enum\AccountRole;
-use Stormannsgal\Core\Entity\Account as AccountInterface;
+use Stormannsgal\Core\Entity\AccountInterface;
+use Stormannsgal\Core\Type\Email;
 use Stormannsgal\Core\Utils\Collectible;
 
 readonly class Account implements AccountInterface, Collectible
@@ -13,12 +15,12 @@ readonly class Account implements AccountInterface, Collectible
 
     public function __construct(
         private int $id,
-        private string $uuid,
+        private UuidInterface $uuid,
         private AccountRole $role,
-        private string $name,
         private string $password,
-        private string $email,
+        private Email $email,
         private DateTimeImmutable $lastAction,
+        private ?string $name = null,
     ) {
     }
 
@@ -27,7 +29,7 @@ readonly class Account implements AccountInterface, Collectible
         return $this->id;
     }
 
-    public function getUuid(): string
+    public function getUuid(): UuidInterface
     {
         return $this->uuid;
     }
@@ -37,12 +39,12 @@ readonly class Account implements AccountInterface, Collectible
         return $this->role;
     }
 
-    public function getName(): string
+    public function getName(): null|string
     {
         return $this->name;
     }
 
-    public function getEmail(): string
+    public function getEmail(): Email
     {
         return $this->email;
     }

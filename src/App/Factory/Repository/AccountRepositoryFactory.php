@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\App\Factory\Repository\MySQL;
+namespace Stormannsgal\App\Factory\Repository;
 
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Stormannsgal\App\Hydrator\AccountHydrator;
-use Stormannsgal\App\Repository\MySQL\AccountRepository;
+use Stormannsgal\App\Repository\AccountRepository;
 use Stormannsgal\App\Table\AccountTable;
 
 class AccountRepositoryFactory

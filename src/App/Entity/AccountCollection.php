@@ -3,8 +3,8 @@
 namespace Stormannsgal\App\Entity;
 
 use InvalidArgumentException;
-use Stormannsgal\Core\Entity\Account as AccountInterface;
-use Stormannsgal\Core\Entity\AccountCollection as AccountCollectionInterface;
+use Stormannsgal\Core\Entity\AccountCollectionInterface;
+use Stormannsgal\Core\Entity\AccountInterface;
 use Stormannsgal\Core\Utils\Collection;
 
 use function sprintf;

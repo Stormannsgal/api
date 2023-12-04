@@ -3,7 +3,7 @@
 namespace Stormannsgal\AppTest\Table;
 
 use PHPUnit\Framework\TestCase;
-use Stormannsgal\Core\Table\AbstractTable as ATable;
+use Stormannsgal\App\Table\AbstractTable as ATable;
 use Stormannsgal\CoreTest\Mock\Database\MockQuery;
 
 use function get_class;

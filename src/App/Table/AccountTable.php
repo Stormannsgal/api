@@ -3,19 +3,22 @@
 namespace Stormannsgal\App\Table;
 
 use Envms\FluentPDO\Exception;
-use Stormannsgal\Core\Table\AbstractTable;
+use Ramsey\Uuid\UuidInterface;
+use Stormannsgal\Core\Store\AccountStoreInterface;
+
+use Stormannsgal\Core\Type\Email;
 
 use function is_array;
 
-class AccountTable extends AbstractTable
+class AccountTable extends AbstractTable implements AccountStoreInterface
 {
     /**
      * @throws Exception
      */
-    public function findByUuid(string $uuid): array
+    public function findByUuid(UuidInterface $uuid): array
     {
         $result = $this->query->from($this->table)
-            ->where('uuid', $uuid)
+            ->where('uuid', $uuid->getHex()->toString())
             ->fetch();
 
         return is_array($result) ? $result : [];
@@ -36,10 +39,10 @@ class AccountTable extends AbstractTable
     /**
      * @throws Exception
      */
-    public function findByEmail(string $email): array
+    public function findByEmail(Email $email): array
     {
         $result = $this->query->from($this->table)
-            ->where('email', $email)
+            ->where('email', $email->toString())
             ->fetch();
 
         return is_array($result) ? $result : [];

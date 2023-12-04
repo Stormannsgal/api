@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\Core\Table;
+namespace Stormannsgal\App\Table;
 
 use Envms\FluentPDO\Exception;
 use Envms\FluentPDO\Query;

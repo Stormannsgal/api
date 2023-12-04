@@ -5,6 +5,21 @@
         "version": "0.0.1"
     },
     "paths": {
+        "/api/account/list/all": {
+            "get": {
+                "tags": [
+                    "Account"
+                ],
+                "summary": "Listing of all accounts",
+                "description": "All accounts are listed in the list. Whether active, inactive, banned or deleted",
+                "operationId": "8477b74e5a349550e4d9a3b421411157",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
         "/api/ping": {
             "get": {
                 "tags": [

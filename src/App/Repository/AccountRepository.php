@@ -1,34 +1,37 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\App\Repository\MySQL;
+namespace Stormannsgal\App\Repository;
 
 use Envms\FluentPDO\Exception;
+use Ramsey\Uuid\UuidInterface;
 use Stormannsgal\App\Entity\AccountCollection;
 use Stormannsgal\App\Hydrator\AccountHydrator;
-use Stormannsgal\App\Table\AccountTable;
-use Stormannsgal\Core\Entity\Account;
-use Stormannsgal\Core\Entity\AccountCollection as AccountCollectionInterface;
+use Stormannsgal\Core\Entity\AccountCollectionInterface;
+use Stormannsgal\Core\Entity\AccountInterface;
 use Stormannsgal\Core\Exception\EmptyResultException;
-use Stormannsgal\Core\Repository\AccountRepository as AccountRepositoryInterface;
+use Stormannsgal\Core\Repository\AccountRepositoryInterface as AccountRepositoryInterface;
+
+use Stormannsgal\Core\Store\AccountStoreInterface;
+
+use Stormannsgal\Core\Type\Email;
 
 use function sprintf;
 
 readonly class AccountRepository implements AccountRepositoryInterface
 {
     public function __construct(
-        private AccountTable $table,
+        private AccountStoreInterface $store,
         private AccountHydrator $hydrator
     ) {
     }
 
     /**
-     * @throws Exception
      * @throws EmptyResultException
      * @throws \Exception
      */
-    public function findById(int $id): Account
+    public function findById(int $id): AccountInterface
     {
-        $account = $this->table->findById($id);
+        $account = $this->store->findById($id);
 
         if (empty($account)) {
             throw new EmptyResultException(
@@ -40,13 +43,12 @@ readonly class AccountRepository implements AccountRepositoryInterface
     }
 
     /**
-     * @throws Exception
      * @throws EmptyResultException
      * @throws \Exception
      */
-    public function findByUuid(string $uuid): Account
+    public function findByUuid(UuidInterface $uuid): AccountInterface
     {
-        $account = $this->table->findByUuid($uuid);
+        $account = $this->store->findByUuid($uuid);
 
         if (empty($account)) {
             throw new EmptyResultException(
@@ -58,12 +60,11 @@ readonly class AccountRepository implements AccountRepositoryInterface
     }
 
     /**
-     * @throws Exception
      * @throws EmptyResultException
      */
-    public function findByName(string $name): Account
+    public function findByName(string $name): AccountInterface
     {
-        $account = $this->table->findByName($name);
+        $account = $this->store->findByName($name);
 
         if (empty($account)) {
             throw new EmptyResultException(
@@ -75,12 +76,11 @@ readonly class AccountRepository implements AccountRepositoryInterface
     }
 
     /**
-     * @throws Exception
      * @throws EmptyResultException
      */
-    public function findByEmail(string $email): Account
+    public function findByEmail(Email $email): AccountInterface
     {
-        $account = $this->table->findByEmail($email);
+        $account = $this->store->findByEmail($email);
 
         if (empty($account)) {
             throw new EmptyResultException(
@@ -92,11 +92,11 @@ readonly class AccountRepository implements AccountRepositoryInterface
     }
 
     /**
-     * @throws Exception
+     * @throws Exception|\Exception
      */
     public function findAll(): AccountCollectionInterface
     {
-        $accounts = $this->table->findAll();
+        $accounts = $this->store->findAll();
 
         $accountCollection = new AccountCollection();
 

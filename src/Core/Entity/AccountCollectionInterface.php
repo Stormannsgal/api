@@ -4,6 +4,6 @@ namespace Stormannsgal\Core\Entity;
 
 use Stormannsgal\Core\Utils\CollectionInterface;
 
-interface AccountCollection extends CollectionInterface
+interface AccountCollectionInterface extends CollectionInterface
 {
 }

@@ -3,7 +3,9 @@
 namespace Stormannsgal\AppTest\Table;
 
 use Envms\FluentPDO\Exception;
+use Ramsey\Uuid\Uuid;
 use Stormannsgal\App\Table\AccountTable;
+use Stormannsgal\Core\Type\Email;
 use Stormannsgal\CoreTest\Mock\Constants\Account;
 
 /**
@@ -43,7 +45,8 @@ class AccountTableTest extends AbstractTable
      */
     public function testCanFindByUuid(): void
     {
-        $account = $this->table->findByUuid(Account::UUID);
+        $uuid = Uuid::fromString(Account::UUID);
+        $account = $this->table->findByUuid($uuid);
 
         $this->assertIsArray($account);
         $this->assertSame(Account::VALID_DATA, $account);
@@ -54,7 +57,8 @@ class AccountTableTest extends AbstractTable
      */
     public function testFindByUuidIsEmpty(): void
     {
-        $account = $this->table->findByUuid(Account::UUID_INVALID);
+        $uuid = Uuid::fromString(Account::UUID_INVALID);
+        $account = $this->table->findByUuid($uuid);
 
         $this->assertIsArray($account);
         $this->assertEmpty($account);
@@ -78,7 +82,7 @@ class AccountTableTest extends AbstractTable
 
     public function testCanFindByEmail(): void
     {
-        $account = $this->table->findByEmail(Account::EMAIL);
+        $account = $this->table->findByEmail(new Email(Account::EMAIL));
 
         $this->assertIsArray($account);
         $this->assertSame(Account::VALID_DATA, $account);
@@ -86,7 +90,7 @@ class AccountTableTest extends AbstractTable
 
     public function testFindByEmailIsEmpty(): void
     {
-        $account = $this->table->findByEmail(Account::EMAIL_INVALID);
+        $account = $this->table->findByEmail(new Email(Account::EMAIL_INVALID));
 
         $this->assertIsArray($account);
         $this->assertEmpty($account);
