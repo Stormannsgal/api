@@ -1,13 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\AppTest\Repository\MySQL;
+namespace AppTest\Repository;
 
 use PHPUnit\Framework\TestCase;
+use Ramsey\Uuid\Uuid;
 use Stormannsgal\App\Hydrator\AccountHydrator;
-use Stormannsgal\App\Repository\MySQL\AccountRepository;
-use Stormannsgal\Core\Entity\Account as AccountInterface;
-use Stormannsgal\Core\Entity\AccountCollection;
+use Stormannsgal\App\Repository\AccountRepository;
+use Stormannsgal\Core\Entity\AccountCollectionInterface;
+use Stormannsgal\Core\Entity\AccountInterface as AccountInterface;
 use Stormannsgal\Core\Exception\EmptyResultException;
+use Stormannsgal\Core\Type\Email;
 use Stormannsgal\CoreTest\Mock\Constants\Account;
 use Stormannsgal\CoreTest\Mock\Table\MockAccountTable;
 
@@ -38,17 +40,19 @@ class AccountRepositoryTest extends TestCase
 
     public function testCanFindByUuid(): void
     {
-        $account = $this->repository->findByUuid(Account::UUID);
+        $uuid = Uuid::fromString(Account::UUID);
+        $account = $this->repository->findByUuid($uuid);
 
         $this->assertInstanceOf(AccountInterface::class, $account);
-        $this->assertSame(Account::UUID, $account->getUuid());
+        $this->assertSame(Account::UUID, $account->getUuid()->getHex()->toString());
     }
 
     public function testFindByUuidThrowException(): void
     {
         $this->expectException(EmptyResultException::class);
 
-        $this->repository->findByUuid(Account::UUID_INVALID);
+        $uuid = Uuid::fromString(Account::UUID_INVALID);
+        $this->repository->findByUuid($uuid);
     }
 
     public function testCanFindByName(): void
@@ -68,24 +72,24 @@ class AccountRepositoryTest extends TestCase
 
     public function testCanFindByEmail(): void
     {
-        $account = $this->repository->findByEmail(Account::EMAIL);
+        $account = $this->repository->findByEmail(new Email(Account::EMAIL));
 
         $this->assertInstanceOf(AccountInterface::class, $account);
-        $this->assertSame(Account::EMAIL, $account->getEMail());
+        $this->assertSame(Account::EMAIL, $account->getEMail()->toString());
     }
 
     public function testFindByEmailThrowException(): void
     {
         $this->expectException(EmptyResultException::class);
 
-        $this->repository->findByEmail(Account::EMAIL_INVALID);
+        $this->repository->findByEmail(new Email(Account::EMAIL_INVALID));
     }
 
     public function testCanFindAll(): void
     {
         $accounts = $this->repository->findAll();
 
-        $this->assertInstanceOf(AccountCollection::class, $accounts);
+        $this->assertInstanceOf(AccountCollectionInterface::class, $accounts);
         $this->assertInstanceOf(AccountInterface::class, $accounts[0]);
     }
 }

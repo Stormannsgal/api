@@ -2,7 +2,9 @@
 
 namespace Stormannsgal\CoreTest\Mock\Table;
 
+use Ramsey\Uuid\UuidInterface;
 use Stormannsgal\App\Table\AccountTable;
+use Stormannsgal\Core\Type\Email;
 use Stormannsgal\CoreTest\Mock\Constants\Account;
 use Stormannsgal\CoreTest\Mock\Database\MockQuery;
 
@@ -28,9 +30,9 @@ class MockAccountTable extends AccountTable
         return [0 => Account::VALID_DATA];
     }
 
-    public function findByUuid(string $uuid): array
+    public function findByUuid(UuidInterface $uuid): array
     {
-        return ($uuid === Account::UUID) ? Account::VALID_DATA : [];
+        return ($uuid->getHex() == Account::UUID) ? Account::VALID_DATA : [];
     }
 
     public function findByName(string $name): array
@@ -38,8 +40,8 @@ class MockAccountTable extends AccountTable
         return ($name === Account::NAME) ? Account::VALID_DATA : [];
     }
 
-    public function findByEmail(string $email): array
+    public function findByEmail(Email $email): array
     {
-        return ($email === Account::EMAIL) ? Account::VALID_DATA : [];
+        return ($email->toString() === Account::EMAIL) ? Account::VALID_DATA : [];
     }
 }

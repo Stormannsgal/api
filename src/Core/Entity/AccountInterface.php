@@ -3,20 +3,21 @@
 namespace Stormannsgal\Core\Entity;
 
 use DateTimeImmutable;
+use Ramsey\Uuid\UuidInterface;
 use Stormannsgal\App\Enum\AccountRole;
-use Stormannsgal\App\Enum\AccountVisibleStatus;
+use Stormannsgal\Core\Type\Email;
 
-interface Account
+interface AccountInterface
 {
     public function getId(): int;
 
-    public function getUuid(): string;
+    public function getUuid(): UuidInterface;
 
-    public function getName(): string;
+    public function getName(): null|string;
 
     public function getPasswordHash(): string;
 
-    public function getEMail(): string;
+    public function getEMail(): Email;
 
     public function getRole(): AccountRole;
 

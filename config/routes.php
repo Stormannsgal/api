@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-use Stormannsgal\App\Handler\PingHandler;
 use Mezzio\Application;
 use Mezzio\MiddlewareFactory;
 use Psr\Container\ContainerInterface;
+use Stormannsgal\App\Handler\Account\ListAllAccountsHandler;
+use Stormannsgal\App\Handler\PingHandler;
 
 /**
  * FastRoute route configuration
@@ -40,4 +41,5 @@ use Psr\Container\ContainerInterface;
 
 return static function (Application $app, MiddlewareFactory $factory, ContainerInterface $container): void {
     $app->get('/api/ping', PingHandler::class, PingHandler::class);
+    $app->get('/api/account/list/all', ListAllAccountsHandler::class, ListAllAccountsHandler::class);
 };

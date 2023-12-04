@@ -5,10 +5,12 @@ namespace Stormannsgal\App\Hydrator;
 use DateTimeImmutable;
 use Exception;
 use InvalidArgumentException;
+use Ramsey\Uuid\Uuid;
 use Stormannsgal\App\Entity\Account;
 use Stormannsgal\App\Enum\AccountRole;
-use Stormannsgal\Core\Entity\Account as AccountInterface;
+use Stormannsgal\Core\Entity\AccountInterface;
 use Stormannsgal\Core\Hydrator\Hydrator;
+use Stormannsgal\Core\Type\Email;
 
 class AccountHydrator extends Hydrator
 {
@@ -18,10 +20,14 @@ class AccountHydrator extends Hydrator
      */
     public function hydrate(array $data): AccountInterface
     {
-        $data['role'] = AccountRole::from($data['roleId']);
-        unset($data['roleId']);
-        $data['lastAction'] = new DateTimeImmutable($data['lastAction']);
-
-        return new Account(...$data);
+        return new Account(
+            id: $data['id'],
+            uuid: Uuid::fromString($data['uuid']),
+            role: AccountRole::from($data['roleId']),
+            password: $data['password'],
+            email: new Email($data['email']),
+            lastAction: new DateTimeImmutable($data['lastAction']),
+            name: $data['name'],
+        );
     }
 }
