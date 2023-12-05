@@ -10,9 +10,7 @@ use Stormannsgal\Core\Entity\AccountCollectionInterface;
 use Stormannsgal\Core\Entity\AccountInterface;
 use Stormannsgal\Core\Exception\EmptyResultException;
 use Stormannsgal\Core\Repository\AccountRepositoryInterface as AccountRepositoryInterface;
-
 use Stormannsgal\Core\Store\AccountStoreInterface;
-
 use Stormannsgal\Core\Type\Email;
 
 use function sprintf;
@@ -61,6 +59,7 @@ readonly class AccountRepository implements AccountRepositoryInterface
 
     /**
      * @throws EmptyResultException
+     * @throws \Exception
      */
     public function findByName(string $name): AccountInterface
     {
@@ -77,6 +76,7 @@ readonly class AccountRepository implements AccountRepositoryInterface
 
     /**
      * @throws EmptyResultException
+     * @throws \Exception
      */
     public function findByEmail(Email $email): AccountInterface
     {
@@ -92,12 +92,11 @@ readonly class AccountRepository implements AccountRepositoryInterface
     }
 
     /**
-     * @throws Exception|\Exception
+     * @throws \Exception
      */
     public function findAll(): AccountCollectionInterface
     {
         $accounts = $this->store->findAll();
-
         $accountCollection = new AccountCollection();
 
         foreach ($accounts as $account) {

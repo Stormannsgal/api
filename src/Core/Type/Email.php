@@ -64,6 +64,7 @@ final class Email implements TypeInterface
                 'Value must be an e-mail'
             );
         }
+
         return $value;
     }
 }

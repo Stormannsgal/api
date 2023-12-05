@@ -4,7 +4,6 @@ namespace Stormannsgal\App\Hydrator;
 
 use DateTimeImmutable;
 use Exception;
-use InvalidArgumentException;
 use Ramsey\Uuid\Uuid;
 use Stormannsgal\App\Entity\Account;
 use Stormannsgal\App\Enum\AccountRole;
@@ -14,9 +13,9 @@ use Stormannsgal\Core\Type\Email;
 
 class AccountHydrator extends Hydrator
 {
+
     /**
      * @throws Exception
-     * @throws InvalidArgumentException
      */
     public function hydrate(array $data): AccountInterface
     {
