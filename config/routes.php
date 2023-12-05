@@ -41,6 +41,6 @@ use Stormannsgal\Core\Config\RouteName;
  */
 
 return static function (Application $app, MiddlewareFactory $factory, ContainerInterface $container): void {
-    $app->get('/api/ping', PingHandler::class, RouteName::PING_HANDLER);
+    $app->get('/api/ping', PingHandler::class, RouteName::HANDLER_PING);
     $app->get('/api/account/list/all', ListAllAccountsHandler::class, ListAllAccountsHandler::class);
 };
