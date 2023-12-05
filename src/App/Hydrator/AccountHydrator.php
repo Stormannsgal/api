@@ -13,7 +13,6 @@ use Stormannsgal\Core\Type\Email;
 
 class AccountHydrator extends Hydrator
 {
-
     /**
      * @throws Exception
      */
