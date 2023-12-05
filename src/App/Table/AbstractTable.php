@@ -5,11 +5,12 @@ namespace Stormannsgal\App\Table;
 use Envms\FluentPDO\Exception;
 use Envms\FluentPDO\Query;
 use ReflectionClass;
+use Stormannsgal\Core\Store\StoreInterface;
 
 use function is_array;
 use function substr;
 
-class AbstractTable
+class AbstractTable implements StoreInterface
 {
     protected readonly string $table;
 

@@ -11,8 +11,6 @@ use Stormannsgal\Core\Utils\Collectible;
 
 readonly class Account implements AccountInterface, Collectible
 {
-    public const AUTHENTICATED = 'authenticated User';
-
     public function __construct(
         private int $id,
         private UuidInterface $uuid,
