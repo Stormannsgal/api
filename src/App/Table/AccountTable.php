@@ -5,7 +5,6 @@ namespace Stormannsgal\App\Table;
 use Envms\FluentPDO\Exception;
 use Ramsey\Uuid\UuidInterface;
 use Stormannsgal\Core\Store\AccountStoreInterface;
-
 use Stormannsgal\Core\Type\Email;
 
 use function is_array;

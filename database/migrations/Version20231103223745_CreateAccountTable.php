@@ -16,8 +16,8 @@ final class Version20231103223745_CreateAccountTable extends AbstractMigration
         $table->addColumn('uuid', Types::STRING, ['length' => 32]);
         $table->addColumn('roleId', Types::INTEGER, ['unsigned' => true]);
         $table->addColumn('name', Types::STRING, ['length' => 50, 'notnull' => false]);
-        $table->addColumn('password', Types::STRING);
-        $table->addColumn('email', Types::STRING);
+        $table->addColumn('password', Types::STRING, ['length' => 255]);
+        $table->addColumn('email', Types::STRING, ['length' => 512]);
         $table->addColumn('lastAction', Types::DATETIME_IMMUTABLE, ['notnull' => false]);
 
         $table->setPrimaryKey(['id']);

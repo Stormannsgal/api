@@ -2,14 +2,13 @@
 
 namespace Stormannsgal\App\Repository;
 
-use Envms\FluentPDO\Exception;
 use Ramsey\Uuid\UuidInterface;
 use Stormannsgal\App\Entity\AccountCollection;
 use Stormannsgal\App\Hydrator\AccountHydrator;
 use Stormannsgal\Core\Entity\AccountCollectionInterface;
 use Stormannsgal\Core\Entity\AccountInterface;
 use Stormannsgal\Core\Exception\EmptyResultException;
-use Stormannsgal\Core\Repository\AccountRepositoryInterface as AccountRepositoryInterface;
+use Stormannsgal\Core\Repository\AccountRepositoryInterface;
 use Stormannsgal\Core\Store\AccountStoreInterface;
 use Stormannsgal\Core\Type\Email;
 
