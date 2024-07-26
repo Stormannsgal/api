@@ -2,12 +2,12 @@
 
 return [
     'database' => [
-        'driver' => 'driver',
-        'host' => 'host',
-        'port' => 'port',
-        'user' => 'user',
-        'password' => 'password',
-        'dbname' => 'dbname',
+        'driver' => 'mysql',
+        'host' => 'stormannsgal-mariadb',
+        'port' => '3306',
+        'user' => 'dev',
+        'password' => 'dev',
+        'dbname' => 'db',
         'charset' => 'utf8mb4',
         'defaultTableOptions' => [
             'charset' => 'utf8mb4',

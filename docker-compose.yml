@@ -13,13 +13,14 @@ services:
     container_name: php
     user: "${USERMAP_UID:-1000}:${USERMAP_GID:-1000}"
     image: "ghcr.io/ownhackathon/hackathon-api-php:latest"
+    env_file: ".env"
     volumes:
       - ./:/var/www/html
       - ./docker/php/php-ini-overrides.ini:/usr/local/etc/php/conf.d/extra.ini
 
   database:
     image: mariadb:${MARIADB_VERSION:-latest}
-    container_name: mariadb
+    container_name: stormannsgal-mariadb
     ports:
       - "${MYSQL_PUBLIC_PORT:-3306}:3306"
     environment:

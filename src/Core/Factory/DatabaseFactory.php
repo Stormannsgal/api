@@ -15,8 +15,7 @@ class DatabaseFactory
      */
     public function __invoke(ContainerInterface $container): PDO
     {
-        $settings = $container->get('config');
-        $settings = $settings['database'];
+        $settings = $container->get('config')['database'];
 
         $dsn = $settings['driver'] === 'mysql'
             ? 'mysql:dbname=' . $settings['dbname'] . ';host=' . $settings['host'] . ';port=' . $settings['port']

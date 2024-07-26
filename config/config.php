@@ -14,6 +14,7 @@ $cacheConfig = [
 ];
 
 $aggregator = new ConfigAggregator([
+    \Laminas\Log\ConfigProvider::class,
     \Mezzio\Tooling\ConfigProvider::class,
     \Mezzio\Helper\ConfigProvider::class,
     \Mezzio\Router\FastRouteRouter\ConfigProvider::class,
@@ -41,9 +42,12 @@ $aggregator = new ConfigAggregator([
     //   - `*.global.php`
     //   - `local.php`
     //   - `*.local.php`
-    new PhpFileProvider(realpath(__DIR__) . '/autoload/{{,*.}global,{,*.}local}.php.dist'),
-
-    new PhpFileProvider(realpath(__DIR__) . '/autoload/{{,*.}global,{,*.}local}.php'),
+    new PhpFileProvider(
+        realpath(__DIR__) . sprintf(
+            '/autoload/{,*.}{global,local,%s}.php',
+            getenv('APP_ENV') ?: 'production'
+        )
+    ),
 
     // Load development config if it exists
     new PhpFileProvider(realpath(__DIR__) . '/development.config.php'),
