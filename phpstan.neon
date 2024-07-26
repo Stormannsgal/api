@@ -2,7 +2,10 @@ parameters:
 	level: 6
 	paths:
 		- src
-	checkMissingIterableValueType: false
-	checkGenericClassInNonGenericObjectType: false
+	ignoreErrors:
+		- identifier: missingType.iterableValue
+		- identifier: missingType.generics
 	bootstrapFiles:
 	    - constants.php
+includes:
+	- vendor/phpstan/phpstan-deprecation-rules/rules.neon
