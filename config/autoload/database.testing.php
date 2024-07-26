@@ -3,7 +3,7 @@
 return [
     'database' => [
         'driver' => 'sqlite',
-        'host' => __DIR__ . '/../database/database.sqlite',
+        'host' => __DIR__ . '/../../database/database.sqlite',
         'port' => '3306',
         'user' => 'dev',
         'password' => 'dev',
