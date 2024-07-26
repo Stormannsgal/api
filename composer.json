@@ -64,8 +64,8 @@
         "overtrue/phplint": "^9.0",
         "phpstan/phpstan": "^1.10",
         "phpstan/phpstan-deprecation-rules": "^1.2",
-        "phpunit/php-code-coverage": "^9.2",
-        "phpunit/phpunit": "^9.5.11",
+        "phpunit/php-code-coverage": "^10.0",
+        "phpunit/phpunit": "^10.0",
         "roave/security-advisories": "dev-master",
         "squizlabs/php_codesniffer": "^3.7",
         "slevomat/coding-standard" : "^8.14"
@@ -100,7 +100,11 @@
         "phpcs": "phpcs --standard=phpcs.xml -s -p",
         "phpcbf": "phpcbf --standard=phpcs.xml -p",
         "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon",
-        "test": "XDEBUG_MODE=coverage ./vendor/bin/phpunit",
+        "unittest": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --colors=always --configuration phpunit_unittest.xml",
+        "functionaltest": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --colors=always --configuration phpunit_functionaltest.xml",
+        "test": [
+            "@unittest"
+        ],
         "check": [
             "@phplint",
             "@phpcs",
