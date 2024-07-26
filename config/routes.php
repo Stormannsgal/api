@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Mezzio\Application;
 use Mezzio\MiddlewareFactory;
 use Psr\Container\ContainerInterface;
+use Stormannsgal\App\Handler\Account\AccountCreateHandler;
 use Stormannsgal\App\Handler\Account\ListAllAccountsHandler;
 use Stormannsgal\App\Handler\PingHandler;
 use Stormannsgal\Core\Config\RouteName;
@@ -41,6 +42,13 @@ use Stormannsgal\Core\Config\RouteName;
  */
 
 return static function (Application $app, MiddlewareFactory $factory, ContainerInterface $container): void {
-    $app->get('/api/ping', PingHandler::class, RouteName::HANDLER_PING);
+    $app->get('/api/ping', PingHandler::class, RouteName::PING);
+    $app->post(
+        path: '/api/account',
+        middleware: [
+            AccountCreateHandler::class,
+        ],
+        name: RouteName::ACCOUNT_CREATE
+    );
     $app->get('/api/account/list/all', ListAllAccountsHandler::class, ListAllAccountsHandler::class);
 };

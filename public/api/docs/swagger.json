@@ -5,6 +5,24 @@
         "version": "0.0.1"
     },
     "paths": {
+        "/api/account": {
+            "post": {
+                "tags": [
+                    "Account"
+                ],
+                "summary": "Create new Account",
+                "description": "Create new Account",
+                "operationId": "902abdfc53a8327ba1a105a002a1e1f1",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
         "/api/account/list/all": {
             "get": {
                 "tags": [

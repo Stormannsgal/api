@@ -4,5 +4,7 @@ namespace Stormannsgal\Core\Config;
 
 interface RouteName
 {
-    public const HANDLER_PING = 'handler.ping';
+    public const PING = 'handler.ping';
+
+    public const ACCOUNT_CREATE = 'account.create';
 }
