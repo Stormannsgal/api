@@ -8,7 +8,7 @@ use Psr\Container\ContainerInterface;
 use Stormannsgal\App\Handler\Account\AccountCreateHandler;
 use Stormannsgal\App\Handler\Account\ListAllAccountsHandler;
 use Stormannsgal\App\Handler\PingHandler;
-use Stormannsgal\Core\Config\RouteName;
+use Stormannsgal\Core\Config\Route;
 
 /**
  * FastRoute route configuration
@@ -42,13 +42,25 @@ use Stormannsgal\Core\Config\RouteName;
  */
 
 return static function (Application $app, MiddlewareFactory $factory, ContainerInterface $container): void {
-    $app->get('/api/ping', PingHandler::class, RouteName::PING);
+    $app->get(
+        path: '/api/ping',
+        middleware: [
+            PingHandler::class,
+        ],
+        name: Route::PING
+    );
     $app->post(
         path: '/api/account',
         middleware: [
             AccountCreateHandler::class,
         ],
-        name: RouteName::ACCOUNT_CREATE
+        name: Route::ACCOUNT_CREATE
     );
-    $app->get('/api/account/list/all', ListAllAccountsHandler::class, ListAllAccountsHandler::class);
+    $app->get(
+        path: '/api/account/list/all',
+        middleware: [
+            ListAllAccountsHandler::class,
+        ],
+        name: Route::ACCOUNT_LIST_ALL
+    );
 };
