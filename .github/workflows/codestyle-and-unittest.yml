@@ -113,38 +113,38 @@ jobs:
       - name: Run PHP Unit Test
         run: composer run-script unittest
 
-#  phpfunctional:
-#    name: PHP Functional Test
-#    needs:
-#      - phplint
-#      - phpstan
-#      - phpcs
-#    runs-on: ubuntu-20.04
+  phpfunctional:
+    name: PHP Functional Test
+    needs:
+      - phplint
+      - phpstan
+      - phpcs
+    runs-on: ubuntu-20.04
 
-#    steps:
-#      - uses: actions/checkout@v4.1.1
+    steps:
+      - uses: actions/checkout@v4.1.1
 
-#      - name: Install PHP with extensions.
-#        uses: shivammathur/setup-php@v2
-#        with:
-#          php-version: 8.3
-#          extensions: pdo, pdo_sqlite
-#          ini-values: date.timezone='UTC'
+      - name: Install PHP with extensions.
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.3
+          extensions: pdo, pdo_sqlite
+          ini-values: date.timezone='UTC'
 
-#      - name: Validate composer.json and composer.lock
-#        run: composer validate --strict
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
 
-#      - name: Cache Composer packages
-#        id: composer-cache
-#        uses: actions/cache@v4
-#        with:
-#          path: vendor
-#          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-#          restore-keys: |
-#            ${{ runner.os }}-php-
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
 
-#      - name: Install dependencies
-#        run: composer install --prefer-dist --no-progress
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
 
-#      - name: Run PHP Unit Test
-#        run: composer run-script functionaltest
+      - name: Run PHP Unit Test
+        run: composer run-script functionaltest
