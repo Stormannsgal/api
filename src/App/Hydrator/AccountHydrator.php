@@ -22,10 +22,11 @@ class AccountHydrator extends Hydrator
             id: $data['id'],
             uuid: Uuid::fromString($data['uuid']),
             role: AccountRole::from($data['roleId']),
+            name: $data['name'],
             password: $data['password'],
             email: new Email($data['email']),
-            lastAction: new DateTimeImmutable($data['lastAction']),
-            name: $data['name'],
+            registeredAt: new DateTimeImmutable($data['registeredAt']),
+            lastActionAt: new DateTimeImmutable($data['lastActionAt']),
         );
     }
 }

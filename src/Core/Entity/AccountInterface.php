@@ -21,5 +21,7 @@ interface AccountInterface
 
     public function getRole(): AccountRole;
 
-    public function getLastAction(): DateTimeImmutable;
+    public function getRegisteredAt(): DateTimeImmutable;
+
+    public function getLastActionAt(): DateTimeImmutable;
 }

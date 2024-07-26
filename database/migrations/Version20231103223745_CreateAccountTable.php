@@ -18,7 +18,7 @@ final class Version20231103223745_CreateAccountTable extends AbstractMigration
         $table->addColumn('name', Types::STRING, ['length' => 64, 'notnull' => false]);
         $table->addColumn('password', Types::STRING, ['length' => 64]);
         $table->addColumn('email', Types::STRING, ['length' => 512]);
-        $table->addColumn('registrationAt', Types::DATETIME_IMMUTABLE, ['default' => 'CURRENT_TIMESTAMP', 'notnull' => false,]);
+        $table->addColumn('registeredAt', Types::DATETIME_IMMUTABLE, ['default' => 'CURRENT_TIMESTAMP', 'notnull' => false,]);
         $table->addColumn('lastActionAt', Types::DATETIME_IMMUTABLE, ['default' => 'CURRENT_TIMESTAMP', 'notnull' => false,]);
 
         $table->setPrimaryKey(['id']);

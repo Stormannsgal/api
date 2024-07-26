@@ -6,19 +6,23 @@ use DateTimeImmutable;
 use Ramsey\Uuid\UuidInterface;
 use Stormannsgal\App\Enum\AccountRole;
 use Stormannsgal\Core\Entity\AccountInterface;
+use Stormannsgal\Core\Trait\CloneReadonlyClassWith;
 use Stormannsgal\Core\Type\Email;
 use Stormannsgal\Core\Utils\Collectible;
 
 readonly class Account implements AccountInterface, Collectible
 {
+    use CloneReadonlyClassWith;
+
     public function __construct(
         private int $id,
         private UuidInterface $uuid,
         private AccountRole $role,
+        private ?string $name,
         private string $password,
         private Email $email,
-        private DateTimeImmutable $lastAction,
-        private ?string $name = null,
+        private DateTimeImmutable $registeredAt,
+        private DateTimeImmutable $lastActionAt,
     ) {
     }
 
@@ -52,8 +56,13 @@ readonly class Account implements AccountInterface, Collectible
         return $this->password;
     }
 
-    public function getLastAction(): DateTimeImmutable
+    public function getRegisteredAt(): DateTimeImmutable
     {
-        return $this->lastAction;
+        return $this->registeredAt;
+    }
+
+    public function getLastActionAt(): DateTimeImmutable
+    {
+        return $this->lastActionAt;
     }
 }
