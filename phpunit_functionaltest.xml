@@ -13,8 +13,8 @@
         displayDetailsOnTestsThatTriggerWarnings="true"
 >
     <testsuites>
-       <testsuite name="Functional">
-            <directory>tests/Functional</directory>
+       <testsuite name="FunctionalTest">
+            <directory>tests/FunctionalTest</directory>
         </testsuite>
     </testsuites>
 </phpunit>

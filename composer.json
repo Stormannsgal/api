@@ -85,7 +85,7 @@
       "Stormannsgal\\AppTest\\": "tests/AppTest/",
       "Stormannsgal\\CoreTest\\": "tests/CoreTest/",
       "Stormannsgal\\GameTest\\": "tests/GameTest/",
-      "Stormannsgal\\FunctionalTest\\": "tests/Functional/"
+      "Stormannsgal\\FunctionalTest\\": "tests/FunctionalTest/"
     }
   },
   "scripts": {
