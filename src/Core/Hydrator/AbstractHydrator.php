@@ -2,7 +2,7 @@
 
 namespace Stormannsgal\Core\Hydrator;
 
-abstract class Hydrator
+abstract class AbstractHydrator
 {
     abstract public function hydrate(array $data): object;
 }

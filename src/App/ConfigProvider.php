@@ -2,13 +2,13 @@
 
 namespace Stormannsgal\App;
 
-use Stormannsgal\App\Factory\Repository\AccountRepositoryFactory;
-use Stormannsgal\App\Factory\Table\AccountTableFactory;
 use Stormannsgal\App\Handler\Account\ListAllAccountsHandler;
 use Stormannsgal\App\Handler\PingHandler;
 use Stormannsgal\App\Hydrator\AccountHydrator;
 use Stormannsgal\App\Repository\AccountRepository;
+use Stormannsgal\App\Repository\AccountRepositoryFactory;
 use Stormannsgal\App\Table\AccountTable;
+use Stormannsgal\App\Table\AccountTableFactory;
 
 class ConfigProvider
 {

@@ -2,7 +2,7 @@
 
 namespace Stormannsgal\Core\Entity\Buildings;
 
-use Stormannsgal\Game\Enum\BuildingType;
+use Stormannsgal\Core\Enum\Game\BuildingType;
 
 interface Building
 {

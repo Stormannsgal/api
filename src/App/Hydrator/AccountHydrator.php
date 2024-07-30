@@ -7,10 +7,10 @@ use Exception;
 use Ramsey\Uuid\Uuid;
 use Stormannsgal\App\Entity\Account;
 use Stormannsgal\Core\Entity\AccountInterface;
-use Stormannsgal\Core\Hydrator\Hydrator;
+use Stormannsgal\Core\Hydrator\AbstractHydrator;
 use Stormannsgal\Core\Type\Email;
 
-class AccountHydrator extends Hydrator
+class AccountHydrator extends AbstractHydrator
 {
     /**
      * @throws Exception

@@ -2,8 +2,8 @@
 
 namespace Stormannsgal\Core\Entity;
 
-use Stormannsgal\Game\Enum\CharacterPermission;
-use Stormannsgal\Game\Enum\CharackterRole;
+use Stormannsgal\Core\Enum\Game\CharackterRole;
+use Stormannsgal\Core\Enum\Game\CharacterPermission;
 
 interface Charackter
 {

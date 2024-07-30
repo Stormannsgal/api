@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\App\Enum;
+namespace Stormannsgal\Core\Enum\App;
 
 enum AccountRole: int
 {

@@ -1,12 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\App\Factory\Table;
+namespace Stormannsgal\App\Table;
 
 use Envms\FluentPDO\Query;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
-use Stormannsgal\App\Table\AccountTable;
 
 class AccountTableFactory
 {
