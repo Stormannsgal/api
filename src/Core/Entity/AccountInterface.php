@@ -4,7 +4,6 @@ namespace Stormannsgal\Core\Entity;
 
 use DateTimeImmutable;
 use Ramsey\Uuid\UuidInterface;
-use Stormannsgal\App\Enum\AccountRole;
 use Stormannsgal\Core\Type\Email;
 
 interface AccountInterface
@@ -18,8 +17,6 @@ interface AccountInterface
     public function getPasswordHash(): string;
 
     public function getEMail(): Email;
-
-    public function getRole(): AccountRole;
 
     public function getRegisteredAt(): DateTimeImmutable;
 
