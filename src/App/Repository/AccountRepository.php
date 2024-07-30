@@ -11,6 +11,7 @@ use Stormannsgal\Core\Exception\EmptyResultException;
 use Stormannsgal\Core\Repository\AccountRepositoryInterface;
 use Stormannsgal\Core\Store\AccountStoreInterface;
 use Stormannsgal\Core\Type\Email;
+use Exception;
 
 use function sprintf;
 
@@ -24,13 +25,13 @@ readonly class AccountRepository implements AccountRepositoryInterface
 
     /**
      * @throws EmptyResultException
-     * @throws \Exception
+     * @throws Exception
      */
     public function findById(int $id): AccountInterface
     {
         $account = $this->store->findById($id);
 
-        if (empty($account)) {
+        if ($account === []) {
             throw new EmptyResultException(
                 sprintf('id %d not found in Account Repository', $id)
             );
@@ -41,15 +42,15 @@ readonly class AccountRepository implements AccountRepositoryInterface
 
     /**
      * @throws EmptyResultException
-     * @throws \Exception
+     * @throws Exception
      */
     public function findByUuid(UuidInterface $uuid): AccountInterface
     {
         $account = $this->store->findByUuid($uuid);
 
-        if (empty($account)) {
+        if ($account === []) {
             throw new EmptyResultException(
-                sprintf('Uuid %s not found in Account Repository', $uuid)
+                sprintf('Uuid %s not found in Account Repository', $uuid->getHex()->toString())
             );
         }
 
@@ -58,13 +59,13 @@ readonly class AccountRepository implements AccountRepositoryInterface
 
     /**
      * @throws EmptyResultException
-     * @throws \Exception
+     * @throws Exception
      */
     public function findByName(string $name): AccountInterface
     {
         $account = $this->store->findByName($name);
 
-        if (empty($account)) {
+        if ($account === []) {
             throw new EmptyResultException(
                 sprintf('Name %s not found in Account Repository', $name)
             );
@@ -75,15 +76,15 @@ readonly class AccountRepository implements AccountRepositoryInterface
 
     /**
      * @throws EmptyResultException
-     * @throws \Exception
+     * @throws Exception
      */
     public function findByEmail(Email $email): AccountInterface
     {
         $account = $this->store->findByEmail($email);
 
-        if (empty($account)) {
+        if ($account === []) {
             throw new EmptyResultException(
-                sprintf('E-Mail %s not found in Account Repository', $email)
+                sprintf('E-Mail %s not found in Account Repository', $email->toString())
             );
         }
 
@@ -91,7 +92,7 @@ readonly class AccountRepository implements AccountRepositoryInterface
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function findAll(): AccountCollectionInterface
     {
