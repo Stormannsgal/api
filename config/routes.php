@@ -50,14 +50,14 @@ return static function (Application $app, MiddlewareFactory $factory, ContainerI
         name: Route::PING
     );
     $app->post(
-        path: '/api/account',
+        path: '/account',
         middleware: [
             AccountCreateHandler::class,
         ],
         name: Route::ACCOUNT_CREATE
     );
     $app->get(
-        path: '/api/account/list/all',
+        path: '/account/list/all',
         middleware: [
             ListAllAccountsHandler::class,
         ],

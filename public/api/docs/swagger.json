@@ -2,17 +2,22 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Stormannsgal API Overview",
-        "version": "0.0.1"
+        "version": "0.1.0"
     },
+    "servers": [
+        {
+            "url": "/api"
+        }
+    ],
     "paths": {
-        "/api/account": {
+        "/account": {
             "post": {
                 "tags": [
                     "Account"
                 ],
                 "summary": "Create new Account",
                 "description": "Create new Account",
-                "operationId": "902abdfc53a8327ba1a105a002a1e1f1",
+                "operationId": "1ad0d68a93cdae57771494cb175e2f6b",
                 "responses": {
                     "200": {
                         "description": "Success"
@@ -23,14 +28,14 @@
                 }
             }
         },
-        "/api/account/list/all": {
+        "/account/list/all": {
             "get": {
                 "tags": [
                     "Account"
                 ],
                 "summary": "Listing of all accounts",
                 "description": "All accounts are listed in the list. Whether active, inactive, banned or deleted",
-                "operationId": "8477b74e5a349550e4d9a3b421411157",
+                "operationId": "a9432c702e93b026dc5e0b7626d17cc8",
                 "responses": {
                     "200": {
                         "description": "Success"
@@ -38,12 +43,12 @@
                 }
             }
         },
-        "/api/ping": {
+        "/ping": {
             "get": {
                 "tags": [
                     "System Information"
                 ],
-                "operationId": "87540e06d61c7bf3e9cf05fe569ed2ee",
+                "operationId": "ac08b5c593553410726c55e0b7ca0df1",
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -79,6 +84,16 @@
     "security": [
         {
             "bearerAuth": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "Account",
+            "description": "Account"
+        },
+        {
+            "name": "System Information",
+            "description": "System Information"
         }
     ]
 }

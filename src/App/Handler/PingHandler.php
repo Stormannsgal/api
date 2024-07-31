@@ -14,7 +14,7 @@ use function time;
 class PingHandler implements RequestHandlerInterface
 {
     #[OA\Get(
-        path: '/api/ping',
+        path: '/ping',
         tags: ['System Information'],
         responses: [
             new OA\Response(

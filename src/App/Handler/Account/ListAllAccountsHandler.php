@@ -12,7 +12,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 class ListAllAccountsHandler implements RequestHandlerInterface
 {
     #[OA\Get(
-        path: '/api/account/list/all',
+        path: '/account/list/all',
         description: 'All accounts are listed in the list. Whether active, inactive, banned or deleted',
         summary: 'Listing of all accounts',
         tags: ['Account']

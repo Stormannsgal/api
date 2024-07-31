@@ -12,7 +12,7 @@ use OpenApi\Attributes as OA;
 class AccountCreateHandler implements RequestHandlerInterface
 {
     #[OA\Post(
-        path: '/api/account',
+        path: '/account',
         description: 'Create new Account',
         summary: 'Create new Account',
         tags: ['Account']

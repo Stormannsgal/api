@@ -11,7 +11,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
 #[OA\Info(
-    version: '0.0.1',
+    version: '0.1.0',
     title: 'Stormannsgal API Overview',
 )]
 #[OA\SecurityScheme(
@@ -24,7 +24,12 @@ use Psr\Http\Server\RequestHandlerInterface;
 )
 ]
 #[OA\OpenApi(
-    security: [['bearerAuth' => []]],
+    servers: [
+        new OA\Server(
+            url: '/api'
+        ),
+    ],
+    security: [['bearerAuth' => []]]
 )]
 class SwaggerUIHandler implements RequestHandlerInterface
 {
