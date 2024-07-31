@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+use Laminas\Stratigility\Middleware\ErrorHandler;
+use Stormannsgal\Core\Listener\LoggingErrorListenerDelegatorFactory;
+
 return [
     // Provides application-wide services.
     // We recommend using fully-qualified class names whenever possible as
@@ -11,17 +14,24 @@ return [
         // key is the alias name, the value is the service to which it points.
         'aliases' => [
             PDO::class => 'database',
+            Envms\FluentPDO\Query::class => 'query',
+            Psr\Log\LoggerInterface::class => 'logger',
         ],
         // Use 'invokables' for constructor-less services, or services that do
         // not require arguments to the constructor. Map a service name to the
         // class name.
         'invokables' => [
-            // Fully\Qualified\InterfaceName::class => Fully\Qualified\ClassName::class,
         ],
         // Use 'factories' for services provided by callbacks/factory classes.
         'factories' => [
             'database' => \Stormannsgal\Core\Factory\DatabaseFactory::class,
             'query' => \Stormannsgal\Core\Factory\QueryFactory::class,
+            'logger' => \Stormannsgal\Core\Factory\LoggerFactory::class,
+        ],
+        'delegators' => [
+            ErrorHandler::class => [
+                LoggingErrorListenerDelegatorFactory::class,
+            ],
         ],
     ],
 ];

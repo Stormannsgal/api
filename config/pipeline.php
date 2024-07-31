@@ -14,6 +14,7 @@ use Mezzio\Router\Middleware\ImplicitOptionsMiddleware;
 use Mezzio\Router\Middleware\MethodNotAllowedMiddleware;
 use Mezzio\Router\Middleware\RouteMiddleware;
 use Psr\Container\ContainerInterface;
+use Stormannsgal\Core\Middleware\RouteNotFoundMiddleware;
 
 /**
  * Setup middleware pipeline:
@@ -73,5 +74,6 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     // At this point, if no Response is returned by any middleware, the
     // NotFoundHandler kicks in; alternately, you can provide other fallback
     // middleware to execute.
+    $app->pipe(RouteNotFoundMiddleware::class);
     $app->pipe(NotFoundHandler::class);
 };

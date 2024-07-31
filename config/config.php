@@ -16,7 +16,7 @@ $cacheConfig = [
 $aggregator = new ConfigAggregator([
     \Laminas\Log\ConfigProvider::class,
     \Mezzio\Tooling\ConfigProvider::class,
-    \Mezzio\Helper\ConfigProvider::class,
+    ConfigProvider::class,
     \Mezzio\Router\FastRouteRouter\ConfigProvider::class,
     \Laminas\HttpHandlerRunner\ConfigProvider::class,
     // Include cache configuration
@@ -30,10 +30,11 @@ $aggregator = new ConfigAggregator([
     class_exists(\Mezzio\Swoole\ConfigProvider::class)
         ? \Mezzio\Swoole\ConfigProvider::class
         : function (): array {
-            return [];
-        },
+        return [];
+    },
 
     // Default App module config
+    Stormannsgal\Core\ConfigProvider::class,
     Stormannsgal\App\ConfigProvider::class,
 
     // Load application config in a pre-defined order in such a way that local settings
