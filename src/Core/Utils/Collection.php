@@ -30,9 +30,9 @@ abstract class Collection implements CollectionInterface
      */
     public function offsetGet(mixed $offset): mixed
     {
-        if (!array_key_exists($offset, $this->collection)) {
+        if (!$this->offsetExists($offset)) {
             throw new UndefinedOffsetException(
-                sprintf('Undefined offset: %d in Collection %s on Line %s', $offset, __FILE__, __LINE__)
+                sprintf('Undefined offset: %s in Collection %s on Line %s', $offset, __FILE__, __LINE__)
             );
         }
 
@@ -41,12 +41,9 @@ abstract class Collection implements CollectionInterface
 
     public function offsetSet(mixed $offset, mixed $value): void
     {
-        if (is_null($offset)) {
-            $this->collection[] = $value;
-
-            return;
-        }
-        $this->collection[$offset] = $value;
+        is_null($offset)
+            ? $this->collection[] = $value
+            : $this->collection[$offset] = $value;
     }
 
     public function offsetUnset(mixed $offset): void
@@ -71,7 +68,7 @@ abstract class Collection implements CollectionInterface
 
     public function valid(): bool
     {
-        return isset($this->collection[$this->position]);
+        return $this->offsetExists($this->position);
     }
 
     public function rewind(): void
