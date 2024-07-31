@@ -43,7 +43,7 @@ use Stormannsgal\Core\Config\Route;
 
 return static function (Application $app, MiddlewareFactory $factory, ContainerInterface $container): void {
     $app->get(
-        path: '/api/ping',
+        path: '/ping',
         middleware: [
             PingHandler::class,
         ],
