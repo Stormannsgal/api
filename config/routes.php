@@ -19,7 +19,7 @@ return static function (Application $app, MiddlewareFactory $factory, ContainerI
     $app->get(
         path: '/token/refresh[/]',
         middleware: [
-            App\Handler\Account\AccessTokenHandler::class
+            App\Handler\Account\AccessTokenHandler::class,
         ],
         name: Route::REFRESH_ACCESS_TOKEN
     );
@@ -30,6 +30,7 @@ return static function (Application $app, MiddlewareFactory $factory, ContainerI
             App\Middleware\AuthenticationValidationMiddleware::class,
             App\Middleware\AuthenticationMiddleware::class,
             App\Middleware\GenerateRefreshTokenMiddleware::class,
+            App\Middleware\GenerateAccessTokenMiddleware::class,
             App\Middleware\AccountAccessAuthPersistMiddleware::class,
             App\Handler\Account\AuthenticationHandler::class,
         ],
