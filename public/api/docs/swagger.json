@@ -28,7 +28,8 @@
                             }
                         }
                     }
-                }
+                },
+                "deprecated": true
             }
         },
         "/account": {
@@ -74,7 +75,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/RefreshToken"
+                                    "$ref": "#/components/schemas/AuthenticationResponse"
                                 }
                             }
                         }
@@ -181,6 +182,19 @@
                     },
                     "message": {
                         "description": "The Failure Message",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "AuthenticationResponse": {
+                "properties": {
+                    "accessToken": {
+                        "description": "The access token after a valid log-in",
+                        "type": "string"
+                    },
+                    "refreshToken": {
+                        "description": "The refresh token after a valid log-in",
                         "type": "string"
                     }
                 },

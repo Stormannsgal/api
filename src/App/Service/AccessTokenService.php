@@ -10,18 +10,25 @@ use function time;
 
 readonly class AccessTokenService
 {
-    public function generate(JwtTokenConfig $config, AccountInterface $account): string
+    use JwtTokenTrait;
+
+    public function __construct(
+        private JwtTokenConfig $config,
+    ) {
+    }
+
+    public function generate(AccountInterface $account): string
     {
         $now = time();
 
         $payload = [
-            'iss' => $config->iss,
-            'aud' => $config->aud,
+            'iss' => $this->config->iss,
+            'aud' => $this->config->aud,
             'iat' => $now,
-            'exp' => $now + $config->duration,
+            'exp' => $now + $this->config->duration,
             'uuid' => $account->getUuid()->getHex()->toString(),
         ];
 
-        return JWT::encode($payload, $config->key, $config->algorithmus);
+        return JWT::encode($payload, $this->config->key, $this->config->algorithmus);
     }
 }

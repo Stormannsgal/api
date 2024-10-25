@@ -8,8 +8,10 @@ use OpenApi\Attributes as OA;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use Stormannsgal\App\DTO\AccessToken;
 use Stormannsgal\App\DTO\AccountAuthenticationData;
 use Stormannsgal\App\DTO\AuthenticationFailureMessage;
+use Stormannsgal\App\DTO\AuthenticationResponse;
 use Stormannsgal\App\DTO\RefreshToken;
 
 readonly class AuthenticationHandler implements RequestHandlerInterface
@@ -26,7 +28,7 @@ readonly class AuthenticationHandler implements RequestHandlerInterface
     #[OA\Response(
         response: HTTP::STATUS_OK,
         description: 'Success',
-        content: [new OA\JsonContent(ref: RefreshToken::class)]
+        content: [new OA\JsonContent(ref: AuthenticationResponse::class)]
     )]
     #[OA\Response(
         response: HTTP::STATUS_BAD_REQUEST,
@@ -40,8 +42,11 @@ readonly class AuthenticationHandler implements RequestHandlerInterface
     )]
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
+        $accessToken = $request->getAttribute(AccessToken::class);
         $refreshToken = $request->getAttribute(RefreshToken::class);
 
-        return new JsonResponse($refreshToken, HTTP::STATUS_OK);
+        $response = AuthenticationResponse::from($accessToken, $refreshToken);
+
+        return new JsonResponse($response, HTTP::STATUS_OK);
     }
 }

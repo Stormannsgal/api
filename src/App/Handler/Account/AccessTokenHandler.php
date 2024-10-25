@@ -15,7 +15,7 @@ readonly class AccessTokenHandler implements RequestHandlerInterface
     /**
      * If authenticated, a new access token is transmitted
      */
-    #[OA\Get(path: '/token/refresh', tags: ['Account'])]
+    #[OA\Get(path: '/token/refresh', tags: ['Account'], deprecated: true)]
     #[OA\Response(
         response: HTTP::STATUS_OK,
         description: 'Success',

@@ -44,6 +44,7 @@ class ConfigProvider
                 AccountRepositoryInterface::class => Repository\AccountRepository::class,
                 Service\AuthenticationService::class => Service\AuthenticationService::class,
                 Service\ClientIdentificationService::class => Service\ClientIdentificationService::class,
+                Service\AccessTokenService::class => Service\AccessTokenService::class,
                 Service\RefreshTokenService::class => Service\RefreshTokenService::class,
 
                 Store\AccountStoreInterface::class => AccountTable::class,
@@ -55,11 +56,13 @@ class ConfigProvider
                 Middleware\AuthenticationMiddleware::class => Middleware\AuthenticationMiddlewareFactory::class,
                 Middleware\AuthenticationValidationMiddleware::class => Middleware\AuthenticationValidationMiddlewareFactory::class,
                 Middleware\ClientIdentificationMiddleware::class => Middleware\ClientIdentificationMiddlewareFactory::class,
+                Middleware\GenerateAccessTokenMiddleware::class => Middleware\GenerateAccessTokenMiddlewareFactory::class,
                 Middleware\GenerateRefreshTokenMiddleware::class => Middleware\GenerateRefreshTokenMiddlewareFactory::class,
 
                 Repository\AccountRepository::class => AccountRepositoryFactory::class,
                 Repository\AccountAccessAuthRepository::class => AccountAccessAuthRepositoryFactory::class,
 
+                Service\AccessTokenService::class => Service\AccessTokenServiceFactory::class,
                 Service\RefreshTokenService::class => Service\RefreshTokenServiceFactory::class,
 
                 Table\AccountTable::class => AccountTableFactory::class,
