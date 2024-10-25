@@ -16,10 +16,11 @@ use Stormannsgal\App\DTO\RefreshToken;
 
 readonly class AuthenticationHandler implements RequestHandlerInterface
 {
-    /**
-     * Attempts to log in an account using transferred data
-     */
-    #[OA\Post(path: '/account/authentication', tags: ['Account'])]
+    #[OA\Post(
+        path: '/account/authentication',
+        summary: 'Attempts to log in an account using transferred data',
+        tags: ['Account']
+    )]
     #[OA\RequestBody(
         description: 'Account data for authentication',
         required: true,
