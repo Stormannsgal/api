@@ -29,7 +29,7 @@ services:
       MYSQL_USER: ${MYSQL_USER:-dev}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-dev}
     volumes:
-      - db:/var/lib/mysql
+      - db-testing:/var/lib/mysql
 
 volumes:
   db-testing:
