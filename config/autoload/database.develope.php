@@ -3,7 +3,7 @@
 return [
     'database' => [
         'driver' => 'mysql',
-        'host' => 'database',
+        'host' => 'mariadb',
         'port' => '3306',
         'user' => 'dev',
         'password' => 'dev',
