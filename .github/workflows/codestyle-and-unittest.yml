@@ -121,6 +121,16 @@ jobs:
       - phpcs
     runs-on: ubuntu-20.04
 
+    services:
+      database-testing:
+        image: mariadb:latest
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: db
+          MYSQL_USER: dev
+          MYSQL_PASSWORD: dev
     steps:
       - uses: actions/checkout@v4.2.2
 
@@ -130,15 +140,6 @@ jobs:
           php-version: 8.3
           extensions: pdo, pdo_sqlite
           ini-values: date.timezone='UTC'
-
-      - name: Install MariaDB
-        uses: YakkaDev/mariadb-actions@v1.1.0
-        with:
-          character: 'utf8mb4'
-          database: 'db'
-          user: 'dev'
-          password: 'dev'
-
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
 
