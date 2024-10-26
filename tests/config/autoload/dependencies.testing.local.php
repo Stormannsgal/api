@@ -13,6 +13,7 @@ return [
         'factories' => [
             'database' => Stormannsgal\Core\Factory\DatabaseFactory::class,
             'query' => Stormannsgal\Core\Factory\QueryFactory::class,
+            'logger' => Stormannsgal\FunctionalTest\Mock\NullLoggerFactory::class,
         ],
     ],
 ];

@@ -1,8 +1,5 @@
 <?php declare(strict_types=1);
 
-namespace Test;
-
-use Core\Middleware\JwtAuthenticationMiddleware;
 use Laminas\Stratigility\Middleware\ErrorHandler;
 use Mezzio\Application;
 use Mezzio\Handler\NotFoundHandler;

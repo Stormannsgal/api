@@ -1,7 +1,5 @@
 <?php declare(strict_types=1);
 
-namespace Test;
-
 use Laminas\ConfigAggregator\ConfigAggregator;
 use Mezzio\ConfigProvider as MezzioConfig;
 use Mezzio\Router\ConfigProvider as RouterConfig;
@@ -13,6 +11,7 @@ $providers = [
     MezzioConfig::class,
     RouterConfig::class,
     \Stormannsgal\App\ConfigProvider::class,
+    \Stormannsgal\Core\ConfigProvider::class,
 ];
 
 if (getenv('APP_TESTING') !== false) {

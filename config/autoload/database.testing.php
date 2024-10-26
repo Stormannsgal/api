@@ -2,13 +2,19 @@
 
 return [
     'database' => [
-        'driver' => 'sqlite',
-        'host' => __DIR__ . '/../../database/database.sqlite',
+        'driver' => 'mysql',
+        'host' => 'mariadb',
         'port' => '3306',
         'user' => 'dev',
         'password' => 'dev',
         'dbname' => 'db',
         'charset' => 'utf8mb4',
+        'defaultTableOptions' => [
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_general_ci',
+            'engine' => 'InnoDB',
+        ],
         'error' => PDO::ERRMODE_EXCEPTION,
+        'emulate_prepares' => false,
     ]
 ];

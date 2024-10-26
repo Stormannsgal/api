@@ -13,11 +13,12 @@ use Doctrine\Migrations\Tools\Console\Command;
 use Symfony\Component\Console\Application;
 
 $env = getenv('APP_ENV') ?: '';
+//$env = 'develope';
 
-$dbParams = (require realpath(__DIR__) . sprintf('/../config/autoload/database.%s.php', getenv('APP_ENV') ?: 'global'))['database'];
+$dbParams = (require realpath(__DIR__) . sprintf('/../config/autoload/database.%s.php', $env))['database'];
 $dbParams['driver'] = 'pdo_' . $dbParams['driver'];
 
-$config = (require realpath(__DIR__) . sprintf('/../config/autoload/migrations.%s.php', getenv('APP_ENV') ?: 'global'))['migrations'];
+$config = (require realpath(__DIR__) . sprintf('/../config/autoload/migrations.%s.php', $env))['migrations'];
 
 $connection = DriverManager::getConnection($dbParams);
 
