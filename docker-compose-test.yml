@@ -1,0 +1,35 @@
+services:
+  apache:
+    image: httpd:alpine
+    container_name: apache
+    ports:
+      - "${HTTP_PORT:-80}:80"
+      - "${SHTTP_PORT:-443}:443"
+    volumes:
+      - ./:/var/www/html
+      - ./docker/httpd.conf:/usr/local/apache2/conf/httpd.conf
+
+  php:
+    container_name: php
+    user: "${USERMAP_UID:-1000}:${USERMAP_GID:-1000}"
+    image: "ghcr.io/ownhackathon/hackathon-api-php:latest"
+    env_file: ".env"
+    volumes:
+      - ./:/var/www/html
+      - ./docker/php/php-ini-overrides.ini:/usr/local/etc/php/conf.d/extra.ini
+
+  database-testing:
+    image: mariadb:${MARIADB_VERSION:-latest}
+    container_name: stormannsgal-mariadb
+    ports:
+      - "${MYSQL_PUBLIC_PORT:-3306}:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-db}
+      MYSQL_USER: ${MYSQL_USER:-dev}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-dev}
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  db-testing:

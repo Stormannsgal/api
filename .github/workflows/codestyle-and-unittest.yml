@@ -126,7 +126,7 @@ jobs:
       - name: Run test files
         uses: isbang/compose-action@v1.5.1
         with:
-          compose-file: './docker-compose.yml'
+          compose-file: './docker-compose-testing.yml'
           up-flags: '--build --abort-on-container-exit'
       - name: Install PHP with extensions.
         uses: shivammathur/setup-php@v2
