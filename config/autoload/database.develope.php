@@ -3,7 +3,7 @@
 return [
     'database' => [
         'driver' => 'mysql',
-        'host' => 'stormannsgal-mariadb',
+        'host' => 'database',
         'port' => '3306',
         'user' => 'dev',
         'password' => 'dev',

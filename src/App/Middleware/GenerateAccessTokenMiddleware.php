@@ -13,7 +13,7 @@ use Stormannsgal\Core\Entity\AccountInterface;
 readonly class GenerateAccessTokenMiddleware implements MiddlewareInterface
 {
     public function __construct(
-        private AccessTokenService $tokenService,
+        private AccessTokenService $accessTokenService,
     ) {
     }
 
@@ -21,7 +21,7 @@ readonly class GenerateAccessTokenMiddleware implements MiddlewareInterface
     {
         $account = $request->getAttribute(AccountInterface::AUTHENTICATED);
 
-        $accessToken = $this->tokenService->generate($account);
+        $accessToken = $this->accessTokenService->generate($account);
 
         $accessToken = AccessToken::fromString($accessToken);
 
