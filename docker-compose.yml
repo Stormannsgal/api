@@ -18,7 +18,7 @@ services:
       - ./:/var/www/html
       - ./docker/php/php-ini-overrides.ini:/usr/local/etc/php/conf.d/extra.ini
 
-  mariadb:
+  database:
     image: mariadb:${MARIADB_VERSION:-latest}
     container_name: stormannsgal-mariadb
     ports:
@@ -31,7 +31,7 @@ services:
     volumes:
       - db:/var/lib/mysql
 
-  database:
+  database-testing:
     image: mariadb:${MARIADB_VERSION:-latest}
     container_name: stormannsgal-mariadb-testing
     ports:
