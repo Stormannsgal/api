@@ -13,7 +13,6 @@ use Doctrine\Migrations\Tools\Console\Command;
 use Symfony\Component\Console\Application;
 
 $env = getenv('APP_ENV') ?: '';
-//$env = 'develope';
 
 $dbParams = (require realpath(__DIR__) . sprintf('/../config/autoload/database.%s.php', $env))['database'];
 $dbParams['driver'] = 'pdo_' . $dbParams['driver'];
@@ -27,11 +26,13 @@ $configuration = new Configuration();
 $configuration->setCustomTemplate(__DIR__ . '/../config/migrations.template.tpl');
 
 $configuration->addMigrationsDirectory('Migrations', $config['migrations_paths']['Migrations']);
+if (array_key_exists('TestDataMigrations', $config['migrations_paths'])) {
+    $configuration->addMigrationsDirectory('TestDataMigrations', $config['migrations_paths']['TestDataMigrations']);
+}
 $configuration->setAllOrNothing($config['all_or_nothing']);
 $configuration->setCheckDatabasePlatform($config['check_database_platform']);
 $configuration->setTransactional($config['transactional']);
 $configuration->setMigrationOrganization($config['organize_migrations']);
-
 
 $storageConfiguration = new TableMetadataStorageConfiguration();
 $storageConfiguration->setTableName($config['table_storage']['table_name']);
@@ -39,7 +40,6 @@ $storageConfiguration->setVersionColumnName($config['table_storage']['version_co
 $storageConfiguration->setVersionColumnLength($config['table_storage']['version_column_length']);
 $storageConfiguration->setExecutedAtColumnName($config['table_storage']['executed_at_column_name']);
 $storageConfiguration->setExecutionTimeColumnName($config['table_storage']['execution_time_column_name']);
-
 
 $configuration->setMetadataStorageConfiguration($storageConfiguration);
 

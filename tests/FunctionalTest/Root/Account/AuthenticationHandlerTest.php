@@ -21,19 +21,7 @@ class AuthenticationHandlerTest extends FunctionalTestCase
 {
     public function testDispatchRequest(): void
     {
-        $account = new Account(
-            2,
-            Uuid::uuid7(),
-            Constants\Account::NAME,
-            password_hash(Constants\Account::PASSWORD, PASSWORD_BCRYPT),
-            new Email(Constants\Account::EMAIL),
-            new DateTimeImmutable(),
-            new DateTimeImmutable()
-        );
 
-        /** @var AccountRepository $repository */
-        $repository = $this->app->container()->get(AccountRepository::class);
-        $repository->insert($account);
 
         $request = new ServerRequest(uri: '/api/ping', method: 'GET');
 

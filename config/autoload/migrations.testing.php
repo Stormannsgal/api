@@ -12,6 +12,7 @@ return [
 
         'migrations_paths' => [
             'Migrations' => __DIR__ . '/../../database/migrations',
+            'TestDataMigrations' => __DIR__ . '/../../tests/database/migrations',
         ],
 
         'all_or_nothing' => true,
