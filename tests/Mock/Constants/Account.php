@@ -20,9 +20,13 @@ class Account
 
     public const string NAME_INVALID = 'invalid Account Name';
 
-    public const string PASSWORD = 'valid Password';
+    public const string PASSWORD = '$2y$10$4dye9Kn.UQkHDalnu9FS2uGwPgCZfrB0qYYJxUIcD8SdUQi8xDtp6';
 
-    public const string PASSWORD_INVALID = 'invalid Password';
+    public const string PASSWORD_STRING = 'valid Password';
+
+    public const string PASSWORD_INVALID = '$2y$10$kVJIMKENYOzFLkEpvKORfOAhi02CXqK14EvK0dBWvDBchDTA4807i';
+
+    public const string PASSWORD_INVALID_STRING = 'invalid Password';
 
     public const string EMAIL = 'valid@example.com';
 
