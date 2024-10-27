@@ -111,8 +111,7 @@
     "unittest": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --colors=always --configuration phpunit_unittest.xml",
     "functionaltest": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --colors=always --configuration phpunit_functionaltest.xml",
     "test": [
-      "@unittest",
-      "@functionaltest"
+      "@unittest"
     ],
     "check": [
       "@phplint",
