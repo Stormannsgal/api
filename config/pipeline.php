@@ -15,6 +15,7 @@ use Mezzio\Router\Middleware\ImplicitOptionsMiddleware;
 use Mezzio\Router\Middleware\MethodNotAllowedMiddleware;
 use Mezzio\Router\Middleware\RouteMiddleware;
 use Psr\Container\ContainerInterface;
+use Stormannsgal\App\Middleware\AccountAuthenticationMiddleware;
 use Stormannsgal\App\Middleware\ClientIdentificationMiddleware;
 use Stormannsgal\Core\Middleware\RouteNotFoundMiddleware;
 
@@ -37,6 +38,7 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
         UrlHelperMiddleware::class,
 
         ClientIdentificationMiddleware::class,
+        AccountAuthenticationMiddleware::class,
 
         DispatchMiddleware::class,
 
