@@ -1,42 +1,42 @@
 name: 🐛 Bug Report
-description: Create Issues for a Bug
-labels: [Bug]
+description: Issues für einen Bug erstellen
+labels: [ Bug ]
 
 body:
   - type: input
     id: affected-versions
     attributes:
-      label: Version(s) affected
+      label: Betroffene Version(en)
       placeholder: x.y.z
     validations:
       required: true
   - type: textarea
     id: description
     attributes:
-      label: Description
-      description: A clear and concise description of the problem
+      label: Beschreibung
+      description: Eine klare und prägnante Beschreibung des Problems
     validations:
       required: true
   - type: textarea
     id: how-to-reproduce
     attributes:
-      label: How to reproduce
+      label: Wie reproduziert man das Problem
       description: |
-        ⚠️  This is the most important part of the report ⚠️
-        Without a way to easily reproduce your issue, there is little chance we will be able to help you and work on a fix.
-        Please, take the time to show us some code and/or config that is needed for others to reproduce the problem easily.
+        ⚠️  Dies ist der wichtigste Teil des Berichts ⚠️
+        Ohne eine Möglichkeit, Ihr Problem zu reproduzieren, haben wir kaum eine Chance, Ihnen zu helfen und an einer Lösung zu arbeiten.
+        Bitte nehmen Sie sich die Zeit, uns einige Codes und/oder Konfigurationen zu zeigen, die andere benötigen, um das Problem leicht zu reproduzieren.
     validations:
       required: true
   - type: textarea
     id: possible-solution
     attributes:
-      label: Possible Solution
+      label: Mögliche Lösung
       description: |
-        Optional: only if you have suggestions on a fix/reason for the bug
-        Don't hesitate to create a pull request with your solution, it helps get faster feedback.
+        Optional: nur wenn Sie Vorschläge zur Behebung/Grund für den Fehler haben
+        Zögern Sie nicht, einen Pull-Request mit Ihrer Lösung zu erstellen, so erhalten Sie schneller Feedback.
   - type: textarea
     id: additional-context
     attributes:
-      label: Additional Context
-      description: "Optional: any other context about the problem: log messages, screenshots, etc."
-
+      label: Zusätzlicher Kontext
+      description: |
+        Optional: weitere Informationen über das Problem: Protokollmeldungen, Screenshots usw.

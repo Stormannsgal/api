@@ -1,33 +1,33 @@
-<!-- Provide a general summary of your changes in the Title above. -->
+<!-- Geben Sie eine allgemeine Zusammenfassung Ihrer Änderungen im obigen Titel. -->
 
-## Description
-<!-- Describe your changes in detail -->
+## Beschreibung
+<!-- Beschreiben Sie Ihre Änderungen im Detail -->
 
-## Motivation and Context
-<!-- Why is this change required? What problem does it solve? -->
-<!-- If it fixes an open issue, please link to the issue here. -->
+## Motivation und Kontext
+<!-- Warum ist diese Änderung erforderlich? Welches Problem wird damit gelöst? -->
+<!-- Wenn damit ein offenes Problem behoben wird, verweisen Sie bitte hier auf das Problem. -->
 
-## How Has This Been Tested?
-<!-- Please describe in detail how you tested your changes. -->
-<!-- see how your change affects other areas of the code, etc. -->
+## Wie wurde dies getestet?
+<!-- Bitte beschreiben Sie ausführlich, wie Sie Ihre Änderungen getestet haben. -->
+<!-- Erkennen, wie sich Ihre Änderung auf andere Bereiche des Codes auswirkt usw. -->
 
-## Screenshots (if appropriate):
+## Screenshots (falls zutreffend):
 
-## Types of changes
-<!-- What types of changes does your code introduce? Put an `x` in all the boxes that apply: --> 
-- [ ] Feature <!--- (mark pull request with Feat:) -->
-- [ ] Bug fix <!--- (mark pull request with Fix:) -->
-- [ ] Refactor <!--- (mark pull request with Refactor:) -->
-- [ ] Change <!--- (mark pull request with Change:) -->
-- [ ] Chore <!--- (mark pull request with Chore:) -->
-- [ ] Style <!--- (mark pull request with Style:) -->
-- [ ] Docs <!--- (mark pull request with Docs:) -->
-- [ ] Test <!--- (mark pull request with Test:) -->
+## Arten von Änderungen
+<!-- Welche Arten von Änderungen bringt Ihr Code mit sich? Kreuzen Sie alle zutreffenden Kästchen mit „x“ an: --> 
+- [ ] Feature <!--- (Pull Request markieren mit Feat:) -->
+- [ ] Bug fix <!--- (Pull Request markieren mit Fix:) -->
+- [ ] Refactor <!--- (Pull Request markieren mit Refactor:) -->
+- [ ] Change <!--- (Pull Request markieren mit Change:) -->
+- [ ] Chore <!--- (Pull Request markieren mit Chore:) -->
+- [ ] Style <!--- (Pull Request markieren mit Style:) -->
+- [ ] Docs <!--- (Pull Request markieren mit Docs:) -->
+- [ ] Test <!--- (Pull Request markieren mit Test:) -->
 
-## Checklist:
-<!-- Go over all the following points, and put an `x` in all the boxes that apply. -->
-<!-- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->
-- [ ] **Contributing Guide** was read.
-- If change in a documentation required:
-  - [ ] Documentation was adjusted
-- [ ] Tests added to cover changes
+## Checkliste:
+<!-- Gehen Sie alle folgenden Punkte durch und kreuzen Sie alle zutreffenden Punkte an. -->
+<!-- Wenn Sie sich unsicher sind, zögern Sie nicht, uns zu fragen. Wir sind für Sie da! -->
+- [ ] **Contributing Guide** wurde gelesen.
+- Wenn eine Änderung in einer Dokumentation erforderlich ist:
+  - [ ] Die Dokumentation wurde angepasst
+- [ ] Tests zur Abdeckung von Änderungen hinzugefügt
