@@ -2,21 +2,34 @@
 
 namespace Stormannsgal\Mock\Service;
 
+use Firebase\JWT\JWT;
+use Ramsey\Uuid\UuidInterface;
 use Stormannsgal\App\DTO\JwtTokenConfig;
 use Stormannsgal\App\Service\AccessTokenService;
-use Stormannsgal\Core\Entity\AccountInterface;
+
+use function time;
 
 readonly class MockAccessTokenService extends AccessTokenService
 {
     public function __construct()
     {
-        $config = new JwtTokenConfig('1', '1', 1, '1', '1');
+        $config = new JwtTokenConfig('localhost', 'localhost', 60 * 15, 'HS512', 'testing');
 
         parent::__construct($config);
     }
 
-    public function generate(AccountInterface $account): string
+    public function generate(UuidInterface $uuid): string
     {
-        return 'test successfully';
+        $now = time();
+
+        $payload = [
+            'iss' => $this->config->iss,
+            'aud' => $this->config->aud,
+            'iat' => $now,
+            'exp' => $now + $this->config->duration,
+            'uuid' => $uuid->getHex()->toString(),
+        ];
+
+        return JWT::encode($payload, $this->config->key, $this->config->algorithmus);
     }
 }

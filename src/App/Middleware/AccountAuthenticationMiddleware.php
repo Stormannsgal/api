@@ -11,9 +11,9 @@ use Psr\Http\Server\RequestHandlerInterface;
 use Psr\Log\LoggerInterface;
 use Ramsey\Uuid\Uuid;
 use Stormannsgal\App\DTO\AuthenticationFailureMessage;
-use Stormannsgal\App\Repository\AccountRepository;
 use Stormannsgal\App\Service\AccessTokenService;
 use Stormannsgal\Core\Entity\AccountInterface;
+use Stormannsgal\Core\Repository\AccountRepositoryInterface;
 
 use function strlen;
 
@@ -21,7 +21,7 @@ readonly class AccountAuthenticationMiddleware implements MiddlewareInterface
 {
     public function __construct(
         private AccessTokenService $accessTokenService,
-        private AccountRepository $accountRepository,
+        private AccountRepositoryInterface $accountRepository,
         private LoggerInterface $logger
     ) {
     }

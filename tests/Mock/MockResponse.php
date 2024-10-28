@@ -7,6 +7,8 @@ use Psr\Http\Message\StreamInterface;
 
 class MockResponse implements ResponseInterface
 {
+    private array $headers = [];
+
     public function getProtocolVersion()
     {
         // TODO: Implement getProtocolVersion() method.
@@ -34,12 +36,14 @@ class MockResponse implements ResponseInterface
 
     public function getHeaderLine($name)
     {
-        // TODO: Implement getHeaderLine() method.
+        return $this->headers[$name] ?? '';
     }
 
     public function withHeader($name, $value)
     {
-        // TODO: Implement withHeader() method.
+        $header = clone $this;
+        $header->headers[$name] = $value;
+        return $header;
     }
 
     public function withAddedHeader($name, $value)

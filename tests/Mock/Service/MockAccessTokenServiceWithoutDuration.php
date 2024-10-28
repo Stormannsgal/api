@@ -1,20 +1,21 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\App\Service;
+namespace Stormannsgal\Mock\Service;
 
 use Firebase\JWT\JWT;
 use Ramsey\Uuid\UuidInterface;
 use Stormannsgal\App\DTO\JwtTokenConfig;
+use Stormannsgal\App\Service\AccessTokenService;
 
 use function time;
 
-readonly class AccessTokenService
+readonly class MockAccessTokenServiceWithoutDuration extends AccessTokenService
 {
-    use JwtTokenTrait;
+    public function __construct()
+    {
+        $config = new JwtTokenConfig('localhost', 'localhost', -10, 'HS512', 'testing');
 
-    public function __construct(
-        protected JwtTokenConfig $config,
-    ) {
+        parent::__construct($config);
     }
 
     public function generate(UuidInterface $uuid): string
