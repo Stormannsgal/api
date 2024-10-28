@@ -52,6 +52,7 @@ class ConfigProvider
             ],
             'factories' => [
                 Middleware\AccountAccessAuthPersistMiddleware::class => Middleware\AccountAccessAuthPersistMiddlewareFactory::class,
+                Middleware\AccountAuthenticationMiddleware::class => Middleware\AccountAuthenticationMiddlewareFactory::class,
                 Middleware\AuthenticationConditionsMiddleware::class => Middleware\AuthenticationConditionsMiddlewareFactory::class,
                 Middleware\AuthenticationMiddleware::class => Middleware\AuthenticationMiddlewareFactory::class,
                 Middleware\AuthenticationValidationMiddleware::class => Middleware\AuthenticationValidationMiddlewareFactory::class,
