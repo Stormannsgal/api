@@ -13,6 +13,11 @@
 Und das war es auch schon. SwaggerUI ist über http://localhost/api/docs/ erreichbar.
 Sonstige Services siehe composer.json -> scripts
 
+## Zusätzliche Informationen
+
+Texte auf der Entwicklungsplattform sind auf Deutsch gehalten.
+Es spricht aber nichts dagegen, Fragen, Antworten oder Ähnliches in Englisch zu stellen.
+
 ---
 
 # Stormannsgal - The project driven by megalomania
@@ -29,3 +34,8 @@ Sonstige Services siehe composer.json -> scripts
 
 And that's it. SwaggerUI is accessible via http://localhost/api/docs/.
 Other services see composer.json -> scripts
+
+## Additional information
+
+Texts on the development platform are in German.
+However, there is no reason why questions, answers or similar should not be provided in English.
