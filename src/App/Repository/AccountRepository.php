@@ -2,107 +2,57 @@
 
 namespace Stormannsgal\App\Repository;
 
-use Envms\FluentPDO\Exception;
 use Ramsey\Uuid\UuidInterface;
-use Stormannsgal\App\Entity\AccountCollection;
-use Stormannsgal\App\Hydrator\AccountHydrator;
 use Stormannsgal\Core\Entity\AccountCollectionInterface;
 use Stormannsgal\Core\Entity\AccountInterface;
-use Stormannsgal\Core\Exception\EmptyResultException;
-use Stormannsgal\Core\Repository\AccountRepositoryInterface as AccountRepositoryInterface;
+use Stormannsgal\Core\Repository\AccountRepositoryInterface;
 use Stormannsgal\Core\Store\AccountStoreInterface;
 use Stormannsgal\Core\Type\Email;
-
-use function sprintf;
 
 readonly class AccountRepository implements AccountRepositoryInterface
 {
     public function __construct(
         private AccountStoreInterface $store,
-        private AccountHydrator $hydrator
     ) {
     }
 
-    /**
-     * @throws EmptyResultException
-     * @throws \Exception
-     */
-    public function findById(int $id): AccountInterface
+    public function insert(AccountInterface $data): true
     {
-        $account = $this->store->findById($id);
-
-        if (empty($account)) {
-            throw new EmptyResultException(
-                sprintf('id %d not found in Account Repository', $id)
-            );
-        }
-
-        return $this->hydrator->hydrate($account);
+        return $this->store->insert($data);
     }
 
-    /**
-     * @throws EmptyResultException
-     * @throws \Exception
-     */
-    public function findByUuid(UuidInterface $uuid): AccountInterface
+    public function update(AccountInterface $data): true
     {
-        $account = $this->store->findByUuid($uuid);
-
-        if (empty($account)) {
-            throw new EmptyResultException(
-                sprintf('Uuid %s not found in Account Repository', $uuid)
-            );
-        }
-
-        return $this->hydrator->hydrate($account);
+        return $this->store->update($data);
     }
 
-    /**
-     * @throws EmptyResultException
-     * @throws \Exception
-     */
-    public function findByName(string $name): AccountInterface
+    public function deleteById(int $id): true
     {
-        $account = $this->store->findByName($name);
-
-        if (empty($account)) {
-            throw new EmptyResultException(
-                sprintf('Name %s not found in Account Repository', $name)
-            );
-        }
-
-        return $this->hydrator->hydrate($account);
+        return $this->store->deleteById($id);
     }
 
-    /**
-     * @throws EmptyResultException
-     * @throws \Exception
-     */
-    public function findByEmail(Email $email): AccountInterface
+    public function findById(int $id): ?AccountInterface
     {
-        $account = $this->store->findByEmail($email);
-
-        if (empty($account)) {
-            throw new EmptyResultException(
-                sprintf('E-Mail %s not found in Account Repository', $email)
-            );
-        }
-
-        return $this->hydrator->hydrate($account);
+        return $this->store->findById($id);
     }
 
-    /**
-     * @throws \Exception
-     */
+    public function findByUuid(UuidInterface $uuid): ?AccountInterface
+    {
+        return $this->store->findByUuid($uuid);
+    }
+
+    public function findByName(string $name): ?AccountInterface
+    {
+        return $this->store->findByName($name);
+    }
+
+    public function findByEmail(Email $email): ?AccountInterface
+    {
+        return $this->store->findByEmail($email);
+    }
+
     public function findAll(): AccountCollectionInterface
     {
-        $accounts = $this->store->findAll();
-        $accountCollection = new AccountCollection();
-
-        foreach ($accounts as $account) {
-            $accountCollection[] = $this->hydrator->hydrate($account);
-        }
-
-        return $accountCollection;
+        return $this->store->findAll();
     }
 }

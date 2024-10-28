@@ -11,10 +11,10 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 use function time;
 
-class PingHandler implements RequestHandlerInterface
+readonly class PingHandler implements RequestHandlerInterface
 {
     #[OA\Get(
-        path: '/api/ping',
+        path: '/ping',
         tags: ['System Information'],
         responses: [
             new OA\Response(
@@ -25,7 +25,7 @@ class PingHandler implements RequestHandlerInterface
                         properties: [
                             new OA\Property(
                                 property: 'ack',
-                                description: 'actually time',
+                                description: 'actually request time',
                                 type: 'string'
                             ),
                         ]

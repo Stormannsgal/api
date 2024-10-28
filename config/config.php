@@ -10,12 +10,17 @@ use Mezzio\Helper\ConfigProvider;
 // To enable or disable caching, set the `ConfigAggregator::ENABLE_CACHE` boolean in
 // `config/autoload/local.php`.
 $cacheConfig = [
-    'config_cache_path' => 'data/cache/config-cache.php',
+    'config_cache_path' => __DIR__ . '/../data/cache/config-cache.php',
 ];
 
 $aggregator = new ConfigAggregator([
-    \Mezzio\Tooling\ConfigProvider::class,
+    \Laminas\InputFilter\ConfigProvider::class,
+    \Laminas\Filter\ConfigProvider::class,
+    \Laminas\Validator\ConfigProvider::class,
     \Mezzio\Helper\ConfigProvider::class,
+    \Laminas\Log\ConfigProvider::class,
+    \Mezzio\Tooling\ConfigProvider::class,
+    ConfigProvider::class,
     \Mezzio\Router\FastRouteRouter\ConfigProvider::class,
     \Laminas\HttpHandlerRunner\ConfigProvider::class,
     // Include cache configuration
@@ -29,10 +34,11 @@ $aggregator = new ConfigAggregator([
     class_exists(\Mezzio\Swoole\ConfigProvider::class)
         ? \Mezzio\Swoole\ConfigProvider::class
         : function (): array {
-            return [];
-        },
+        return [];
+    },
 
     // Default App module config
+    Stormannsgal\Core\ConfigProvider::class,
     Stormannsgal\App\ConfigProvider::class,
 
     // Load application config in a pre-defined order in such a way that local settings
@@ -41,9 +47,12 @@ $aggregator = new ConfigAggregator([
     //   - `*.global.php`
     //   - `local.php`
     //   - `*.local.php`
-    new PhpFileProvider(realpath(__DIR__) . '/autoload/{{,*.}global,{,*.}local}.php.dist'),
-
-    new PhpFileProvider(realpath(__DIR__) . '/autoload/{{,*.}global,{,*.}local}.php'),
+    new PhpFileProvider(
+        realpath(__DIR__) . sprintf(
+            '/autoload/{,*.}{global,local,%s}.php',
+            getenv('APP_ENV') ?: 'production'
+        )
+    ),
 
     // Load development config if it exists
     new PhpFileProvider(realpath(__DIR__) . '/development.config.php'),

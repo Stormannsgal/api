@@ -4,11 +4,12 @@ namespace Stormannsgal\Core\Entity;
 
 use DateTimeImmutable;
 use Ramsey\Uuid\UuidInterface;
-use Stormannsgal\App\Enum\AccountRole;
 use Stormannsgal\Core\Type\Email;
 
 interface AccountInterface
 {
+    public const string AUTHENTICATED = 'account.authenticated.class';
+
     public function getId(): int;
 
     public function getUuid(): UuidInterface;
@@ -19,7 +20,7 @@ interface AccountInterface
 
     public function getEMail(): Email;
 
-    public function getRole(): AccountRole;
+    public function getRegisteredAt(): DateTimeImmutable;
 
-    public function getLastAction(): DateTimeImmutable;
+    public function getLastActionAt(): DateTimeImmutable;
 }

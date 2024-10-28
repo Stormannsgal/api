@@ -2,30 +2,129 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Stormannsgal API Overview",
-        "version": "0.0.1"
+        "version": "0.1.0"
     },
+    "servers": [
+        {
+            "url": "/api"
+        }
+    ],
     "paths": {
-        "/api/account/list/all": {
+        "/token/refresh": {
+            "get": {
+                "tags": [
+                    "Account"
+                ],
+                "summary": "If authenticated, a new access token is transmitted",
+                "operationId": "f45f67bb60de0285741ed94b8e554743",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AccessToken"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": true
+            }
+        },
+        "/account": {
+            "post": {
+                "tags": [
+                    "Account"
+                ],
+                "summary": "Create new Account",
+                "description": "Create new Account",
+                "operationId": "1ad0d68a93cdae57771494cb175e2f6b",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "deprecated": true
+            }
+        },
+        "/account/authentication": {
+            "post": {
+                "tags": [
+                    "Account"
+                ],
+                "summary": "Attempts to log in an account using transferred data",
+                "operationId": "6b8f5d9e1eb8aeb554d39143bd77c718",
+                "requestBody": {
+                    "description": "Account data for authentication",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AccountAuthenticationData"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AuthenticationResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AuthenticationFailureMessage"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized access",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AuthenticationFailureMessage"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/account/list/all": {
             "get": {
                 "tags": [
                     "Account"
                 ],
                 "summary": "Listing of all accounts",
                 "description": "All accounts are listed in the list. Whether active, inactive, banned or deleted",
-                "operationId": "8477b74e5a349550e4d9a3b421411157",
+                "operationId": "a9432c702e93b026dc5e0b7626d17cc8",
                 "responses": {
                     "200": {
                         "description": "Success"
                     }
-                }
+                },
+                "deprecated": true
             }
         },
-        "/api/ping": {
+        "/ping": {
             "get": {
                 "tags": [
                     "System Information"
                 ],
-                "operationId": "87540e06d61c7bf3e9cf05fe569ed2ee",
+                "operationId": "ac08b5c593553410726c55e0b7ca0df1",
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -34,7 +133,7 @@
                                 "schema": {
                                     "properties": {
                                         "ack": {
-                                            "description": "actually time",
+                                            "description": "actually request time",
                                             "type": "string"
                                         }
                                     },
@@ -48,19 +147,106 @@
         }
     },
     "components": {
+        "schemas": {
+            "AccessToken": {
+                "properties": {
+                    "accessToken": {
+                        "description": "The Token for authorized access",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "AccountAuthenticationData": {
+                "required": [
+                    "email",
+                    "password"
+                ],
+                "properties": {
+                    "email": {
+                        "description": "The E-Mail from Account",
+                        "type": "string"
+                    },
+                    "password": {
+                        "description": "The Password from Account",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "AuthenticationFailureMessage": {
+                "properties": {
+                    "statusCode": {
+                        "description": "The Http Status Code",
+                        "type": "integer"
+                    },
+                    "message": {
+                        "description": "The Failure Message",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "AuthenticationResponse": {
+                "properties": {
+                    "accessToken": {
+                        "description": "The access token after a valid log-in",
+                        "type": "string"
+                    },
+                    "refreshToken": {
+                        "description": "The refresh token after a valid log-in",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "RefreshToken": {
+                "properties": {
+                    "refreshToken": {
+                        "description": "The token after a valid log-in",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "securitySchemes": {
-            "bearerAuth": {
-                "type": "http",
+            "accessToken": {
+                "type": "apiKey",
                 "name": "Authorization",
-                "in": "header",
-                "bearerFormat": "JWT",
-                "scheme": "bearer"
+                "in": "header"
+            },
+            "refreshToken": {
+                "type": "apiKey",
+                "name": "Authentication",
+                "in": "header"
+            },
+            "Client Identification Number": {
+                "type": "apiKey",
+                "name": "x-ident",
+                "in": "header"
             }
         }
     },
     "security": [
         {
-            "bearerAuth": []
+            "accessToken": []
+        },
+        {
+            "Client Identification Number": []
+        },
+        {
+            "refreshToken": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "Account",
+            "description": "Account"
+        },
+        {
+            "name": "System Information",
+            "description": "System Information"
         }
     ]
 }

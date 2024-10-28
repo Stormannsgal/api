@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Stormannsgal\Core\Factory\DatabaseFactory;
-use Stormannsgal\CoreTest\Mock\MockContainer;
+use Stormannsgal\Mock\MockContainer;
 
 class DatabaseFactoryTest extends TestCase
 {
@@ -22,6 +22,7 @@ class DatabaseFactoryTest extends TestCase
 
         $config = [
             'database' => [
+                'driver' => 'mysql',
                 'user' => 'testUser',
                 'password' => 'testPassword',
                 'host' => 'https//example.com',
