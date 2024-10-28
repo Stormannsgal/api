@@ -45,14 +45,15 @@ class MockServerRequest implements ServerRequestInterface
 
     public function getHeaderLine($name)
     {
-        return $this->headers[$name];
+        return $this->headers[$name] ?? '';
     }
 
     public function withHeader($name, $value)
     {
-        $this->headers[$name] = $value;
+        $header = clone $this;
+        $header->headers[$name] = $value;
 
-        return clone $this;
+        return $header;
     }
 
     public function withAddedHeader($name, $value)
@@ -127,9 +128,11 @@ class MockServerRequest implements ServerRequestInterface
 
     public function withQueryParams(array $query): self
     {
-        $this->queryParams = $query;
+        $queryParams = clone $this;
 
-        return clone $this;
+        $queryParams->queryParams = $query;
+
+        return $queryParams;
     }
 
     public function getUploadedFiles()
@@ -149,9 +152,10 @@ class MockServerRequest implements ServerRequestInterface
 
     public function withParsedBody($data)
     {
-        $this->body = $data;
+        $body = clone $this;
+        $body->body = $data;
 
-        return clone $this;
+        return $body;
     }
 
     public function getAttributes()
@@ -170,9 +174,10 @@ class MockServerRequest implements ServerRequestInterface
 
     public function withAttribute($name, $value): MockServerRequest
     {
-        $this->attributes[$name] = $value;
+        $attributes = clone $this;
+        $attributes->attributes[$name] = $value;
 
-        return clone $this;
+        return $attributes;
     }
 
     public function withoutAttribute($name)

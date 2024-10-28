@@ -19,9 +19,10 @@ readonly class GenerateAccessTokenMiddleware implements MiddlewareInterface
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
+        /** @var AccountInterface $account */
         $account = $request->getAttribute(AccountInterface::AUTHENTICATED);
 
-        $accessToken = $this->accessTokenService->generate($account);
+        $accessToken = $this->accessTokenService->generate($account->getUuid());
 
         $accessToken = AccessToken::fromString($accessToken);
 
