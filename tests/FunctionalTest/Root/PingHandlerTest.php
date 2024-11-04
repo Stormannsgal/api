@@ -8,7 +8,7 @@ use Laminas\Diactoros\ServerRequest;
 use PHPUnit\Framework\Assert;
 use Stormannsgal\FunctionalTest\AbstractFunctional;
 
-class PingTest extends AbstractFunctional
+class PingHandlerTest extends AbstractFunctional
 {
     use Psr7Assertions;
 
