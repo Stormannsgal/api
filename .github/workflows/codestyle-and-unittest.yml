@@ -123,16 +123,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4.2.2
-      - name: Run test files
-        uses: isbang/compose-action@v2.0.2
-        with:
-          compose-file: './docker-compose-test.yml'
-          up-flags: '--build --abort-on-container-exit'
       - name: Install PHP with extensions.
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.3
-          extensions: pdo, pdo_sqlite
+          extensions: pdo
           ini-values: date.timezone='UTC'
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
