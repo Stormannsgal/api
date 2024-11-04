@@ -16,7 +16,7 @@ class PingHandlerTest extends AbstractFunctional
     {
         $request = new ServerRequest(
             uri: '/api/ping',
-            method: 'GET'
+            method: 'GET',
         );
         $timestamp = time();
         $response = $this->app->handle($request);
