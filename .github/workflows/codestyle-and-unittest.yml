@@ -121,6 +121,18 @@ jobs:
       - phpcs
     runs-on: ubuntu-20.04
 
+    services:
+      database-testing:
+        image: mariadb:latest
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: false
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: db
+          MYSQL_USER: dev
+          MYSQL_PASSWORD: dev
+        ports:
+          - 32574:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - uses: actions/checkout@v4.2.2
       - name: Install PHP with extensions.
@@ -129,13 +141,6 @@ jobs:
           php-version: 8.3
           extensions: pdo
           ini-values: date.timezone='UTC'
-      - uses: getong/mariadb-action@v1.11
-        with:
-          host port: 3306 # Optional, default value is 3306. The port of host
-          mysql database: 'db' # Optional, default value is "test". The specified database which will be create
-          mysql root password: 'root' # Required if "mysql user" is empty, default is empty. The root superuser password
-          mysql user: 'dev' # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Can use secrets, too
-          mysql password: 'dev' # Required if "mysql user" exists. The password for the "mysql user"
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
 
