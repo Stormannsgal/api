@@ -129,6 +129,7 @@ jobs:
       MYSQL_ALLOW_EMPTY_PASSWORD: false
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: db
+      APP_ENV: action
     services:
       database-testing:
         image: mariadb:latest
