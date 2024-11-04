@@ -11,6 +11,9 @@ use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 
+use function dirname;
+use function system;
+
 /**
  * @coversNothing
  */
@@ -28,6 +31,11 @@ abstract class AbstractFunctional extends TestCase
         $this->initApp();
         $this->initPipeline();
         $this->initRoutes();
+    }
+
+    public static function tearDownAfterClass(): void
+    {
+        system('php ' . dirname(__FILE__) . '/../bootstrap.php');
     }
 
     protected function initContainer(): void
