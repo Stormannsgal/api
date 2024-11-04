@@ -121,6 +121,17 @@ jobs:
       - phpcs
     runs-on: ubuntu-20.04
 
+    services:
+      mariadb:
+        image: mariadb:latest
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: db
+          MYSQL_USER: dev
+          MYSQL_PASSWORD: dev
+        options: --health-cmd="mysqladmin ping --silent" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - uses: actions/checkout@v4.2.2
       - name: Install PHP with extensions.
