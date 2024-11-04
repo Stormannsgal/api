@@ -120,7 +120,15 @@ jobs:
       - phpstan
       - phpcs
     runs-on: ubuntu-20.04
-
+    env:
+      DB_DATABASE: db
+      DB_USERNAME: dev
+      DB_PASSWORD: dev
+      DB_HOST: 127.0.0.1
+      DB_PORT: 3306
+      MYSQL_ALLOW_EMPTY_PASSWORD: false
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
     services:
       database-testing:
         image: mariadb:latest
@@ -131,7 +139,7 @@ jobs:
           MYSQL_USER: dev
           MYSQL_PASSWORD: dev
         ports:
-          - 32574:3306
+          - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - uses: actions/checkout@v4.2.2
