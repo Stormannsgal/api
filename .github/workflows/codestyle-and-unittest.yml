@@ -131,7 +131,7 @@ jobs:
           MYSQL_DATABASE: db
           MYSQL_USER: dev
           MYSQL_PASSWORD: dev
-        options: --health-cmd="mysqladmin ping --silent" --health-interval=10s --health-timeout=5s --health-retries=3
+        options: --health-cmd="healthcheck.sh --connect --innodb_initialized" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - uses: actions/checkout@v4.2.2
       - name: Install PHP with extensions.
