@@ -2,25 +2,28 @@
 
 namespace Stormannsgal\FunctionalTest\Root;
 
-use Fig\Http\Message\StatusCodeInterface;
+use Fig\Http\Message\StatusCodeInterface as HTTP;
+use Helmich\Psr7Assert\Psr7Assertions;
 use Laminas\Diactoros\ServerRequest;
-use Stormannsgal\FunctionalTest\FunctionalTestCase;
+use PHPUnit\Framework\Assert;
+use Stormannsgal\FunctionalTest\AbstractFunctional;
 
-use function time;
-
-class PingTest extends FunctionalTestCase
+class PingTest extends AbstractFunctional
 {
-    public function testDispatchRequest(): void
+    use Psr7Assertions;
+
+    public function testPingResponse(): void
     {
-        $request = new ServerRequest(uri: '/api/ping', method: 'GET');
-
-        $response = $this->app->dispatchRequest($request);
-
-        self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
-        self::assertJsonValueMatches(
-            self::getContentAsJson($response),
-            '$.ack',
-            self::greaterThanOrEqual(time())
+        $request = new ServerRequest(
+            uri: '/api/ping',
+            method: 'GET'
         );
+        $timestamp = time();
+        $response = $this->app->handle($request);
+
+        $this->assertSame($response->getStatusCode(), HTTP::STATUS_OK);
+        $this->assertThat($response, $this->bodyMatchesJson([
+            'ack' => Assert::greaterThanOrEqual($timestamp),
+        ]));
     }
 }

@@ -64,6 +64,7 @@
   "require-dev": {
     "filp/whoops": "^2.7.1",
     "helmich/phpunit-json-assert": "^3.5",
+    "helmich/phpunit-psr7-assert": "^4.4",
     "laminas/laminas-development-mode": "^3.3.0",
     "mezzio/mezzio-tooling": "^2.8",
     "overtrue/phplint": "^9.0",
@@ -73,8 +74,7 @@
     "phpunit/phpunit": "^10.0",
     "roave/security-advisories": "dev-master",
     "slevomat/coding-standard": "^8.14",
-    "squizlabs/php_codesniffer": "^3.7",
-    "trinet/mezzio-test": "^1.1"
+    "squizlabs/php_codesniffer": "^3.7"
   },
   "autoload": {
     "psr-4": {
@@ -111,7 +111,8 @@
     "unittest": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --colors=always --configuration phpunit_unittest.xml",
     "functionaltest": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --colors=always --configuration phpunit_functionaltest.xml",
     "test": [
-      "@unittest"
+      "@unittest",
+      "@functionaltest"
     ],
     "check": [
       "@phplint",
