@@ -15,13 +15,13 @@
 >
     <testsuites>
         <testsuite name="AppTest">
-            <directory>tests/AppTest</directory>
+            <directory>tests/UnitTest/AppTest</directory>
         </testsuite>
         <testsuite name="CoreTest">
-            <directory>tests/CoreTest</directory>
+            <directory>tests/UnitTest/CoreTest</directory>
         </testsuite>
         <testsuite name="GameTest">
-            <directory>tests/GameTest</directory>
+            <directory>tests/UnitTest/GameTest</directory>
         </testsuite>
     </testsuites>
     <coverage>
