@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "69b14fbab2b5a81a8ff93ca042ba351c",
+    "content-hash": "5f06b9811249b45f0e8adcafcdcc2756",
     "packages": [
         {
             "name": "brick/math",
@@ -1775,6 +1775,76 @@
                 }
             ],
             "time": "2024-10-18T07:47:27+00:00"
+        },
+        {
+            "name": "mezzio/mezzio-cors",
+            "version": "1.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mezzio/mezzio-cors.git",
+                "reference": "6a2378a2d93d11a5852024b465529d97a77bff16"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mezzio/mezzio-cors/zipball/6a2378a2d93d11a5852024b465529d97a77bff16",
+                "reference": "6a2378a2d93d11a5852024b465529d97a77bff16",
+                "shasum": ""
+            },
+            "require": {
+                "fig/http-message-util": "^1.1",
+                "mezzio/mezzio-router": "^3.5",
+                "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
+                "psr/container": "^1.0 || ^2.0",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0 || ^2.0",
+                "psr/http-server-handler": "^1.0",
+                "psr/http-server-middleware": "^1.0",
+                "webmozart/assert": "^1.11.0"
+            },
+            "require-dev": {
+                "laminas/laminas-coding-standard": "~3.0.0",
+                "laminas/laminas-diactoros": "^3.4.0",
+                "phpunit/phpunit": "^10.5.36",
+                "psalm/plugin-phpunit": "^0.19.0",
+                "vimeo/psalm": "^5.26.1"
+            },
+            "type": "library",
+            "extra": {
+                "laminas": {
+                    "config-provider": "Mezzio\\Cors\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mezzio\\Cors\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "CORS component for Mezzio and other PSR-15 middleware runners.",
+            "keywords": [
+                "cors",
+                "mezzio",
+                "psr-15",
+                "psr-7"
+            ],
+            "support": {
+                "chat": "https://laminas.dev/chat",
+                "docs": "https://docs.laminas.dev/mezzio-cors/",
+                "forum": "https://discourse.laminas.dev",
+                "issues": "https://github.com/mezzio/mezzio-cors/issues",
+                "rss": "https://github.com/mezzio/mezzio-cli/releases.atom",
+                "source": "https://github.com/mezzio/mezzio-cors"
+            },
+            "funding": [
+                {
+                    "url": "https://funding.communitybridge.org/projects/laminas-project",
+                    "type": "community_bridge"
+                }
+            ],
+            "time": "2024-10-16T21:49:27+00:00"
         },
         {
             "name": "mezzio/mezzio-fastroute",
@@ -5360,12 +5430,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "e3b44e38648ef5386687032582759f9c616c8d19"
+                "reference": "d759d7741c71be821730c489871ba89a93534869"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/e3b44e38648ef5386687032582759f9c616c8d19",
-                "reference": "e3b44e38648ef5386687032582759f9c616c8d19",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/d759d7741c71be821730c489871ba89a93534869",
+                "reference": "d759d7741c71be821730c489871ba89a93534869",
                 "shasum": ""
             },
             "conflict": {
@@ -5718,6 +5788,7 @@
                 "matyhtf/framework": "<3.0.6",
                 "mautic/core": "<4.4.13|>=5,<5.1.1",
                 "mautic/core-lib": ">=1.0.0.0-beta,<4.4.13|>=5.0.0.0-alpha,<5.1.1",
+                "maximebf/debugbar": "<1.19",
                 "mdanter/ecc": "<2",
                 "mediawiki/cargo": "<3.6.1",
                 "mediawiki/core": "<1.39.5|==1.40",
@@ -6186,7 +6257,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-10-31T18:06:19+00:00"
+            "time": "2024-11-05T21:04:54+00:00"
         },
         {
             "name": "sebastian/cli-parser",
