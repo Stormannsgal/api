@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\AppTest\Middleware;
+namespace Stormannsgal\UnitTest\AppTest\Middleware;
 
 use PHPUnit\Framework\TestCase;
 use Stormannsgal\App\Middleware\AccountAccessAuthPersistMiddleware;
 use Stormannsgal\App\Middleware\AccountAccessAuthPersistMiddlewareFactory;
 use Stormannsgal\Core\Repository\AccountAccessAuthRepositoryInterface;
-use Stormannsgal\Mock\MockContainer;
-use Stormannsgal\Mock\Repository\MockAccountAccessAuthRepository;
+use Stormannsgal\UnitTest\Mock\MockContainer;
+use Stormannsgal\UnitTest\Mock\Repository\MockAccountAccessAuthRepository;
 
 class AccountAccessAuthPersistMiddlewareFactoryTest extends TestCase
 {

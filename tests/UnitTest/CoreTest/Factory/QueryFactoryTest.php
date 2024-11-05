@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\CoreTest\Factory;
+namespace Stormannsgal\UnitTest\CoreTest\Factory;
 
 use Envms\FluentPDO\Query;
 use PDO;
@@ -8,8 +8,8 @@ use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Stormannsgal\Core\Factory\QueryFactory;
-use Stormannsgal\Mock\Database\MockPDO;
-use Stormannsgal\Mock\MockContainer;
+use Stormannsgal\UnitTest\Mock\Database\MockPDO;
+use Stormannsgal\UnitTest\Mock\MockContainer;
 
 class QueryFactoryTest extends TestCase
 {

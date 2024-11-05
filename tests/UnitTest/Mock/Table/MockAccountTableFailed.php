@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\Mock\Table;
+namespace Stormannsgal\UnitTest\Mock\Table;
 
 use Stormannsgal\App\Entity\AccountCollection;
 use Stormannsgal\App\Hydrator\AccountHydrator;
 use Stormannsgal\App\Table\AccountTable;
 use Stormannsgal\Core\Store\AccountStoreInterface;
-use Stormannsgal\Mock\Database\MockQuery;
+use Stormannsgal\UnitTest\Mock\Database\MockQuery;
 
 class MockAccountTableFailed extends AccountTable implements AccountStoreInterface
 {

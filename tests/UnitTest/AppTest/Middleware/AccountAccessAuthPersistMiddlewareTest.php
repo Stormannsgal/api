@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace AppTest\Middleware;
+namespace Stormannsgal\UnitTest\AppTest\Middleware;
 
 use Fig\Http\Message\StatusCodeInterface;
 use Laminas\Diactoros\Response\JsonResponse;
@@ -11,11 +11,10 @@ use Stormannsgal\App\DTO\RefreshToken;
 use Stormannsgal\App\Hydrator\AccountHydrator;
 use Stormannsgal\App\Hydrator\AccountHydratorInterface;
 use Stormannsgal\App\Middleware\AccountAccessAuthPersistMiddleware;
-use Stormannsgal\AppTest\Middleware\AbstractTestMiddleware;
 use Stormannsgal\Core\Entity\AccountInterface;
 use Stormannsgal\Core\Repository\AccountAccessAuthRepositoryInterface;
-use Stormannsgal\Mock\Constants\Account;
-use Stormannsgal\Mock\Repository\MockAccountAccessAuthRepository;
+use Stormannsgal\UnitTest\Mock\Constants\Account;
+use Stormannsgal\UnitTest\Mock\Repository\MockAccountAccessAuthRepository;
 
 class AccountAccessAuthPersistMiddlewareTest extends AbstractTestMiddleware
 {

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\AppTest\Handler;
+namespace Stormannsgal\UnitTest\AppTest\Handler;
 
 use Stormannsgal\App\Handler\PingHandler;
 use Laminas\Diactoros\Response\JsonResponse;

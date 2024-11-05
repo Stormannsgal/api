@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\Mock\Table;
+namespace Stormannsgal\UnitTest\Mock\Table;
 
 use InvalidArgumentException;
 use Stormannsgal\App\Hydrator\AccountAccessAuthHydrator;
@@ -9,9 +9,9 @@ use Stormannsgal\Core\Entity\AccountAccessAuthCollectionInterface;
 use Stormannsgal\Core\Entity\AccountAccessAuthInterface;
 use Stormannsgal\Core\Exception\DuplicateEntryException;
 use Stormannsgal\Core\Store\AccountAccessAuthStoreInterface;
-use Stormannsgal\Mock\Constants\Account;
-use Stormannsgal\Mock\Constants\AccountAccessAuth;
-use Stormannsgal\Mock\Database\MockQuery;
+use Stormannsgal\UnitTest\Mock\Constants\Account;
+use Stormannsgal\UnitTest\Mock\Constants\AccountAccessAuth;
+use Stormannsgal\UnitTest\Mock\Database\MockQuery;
 
 class MockAccountAccessAuthTable extends AccountAccessAuthTable implements AccountAccessAuthStoreInterface
 {

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\AppTest\Service;
+namespace Stormannsgal\UnitTest\AppTest\Service;
 
 use DomainException;
 use PHPUnit\Framework\TestCase;
@@ -8,7 +8,7 @@ use Stormannsgal\App\DTO\ClientIdentification;
 use Stormannsgal\App\DTO\ClientIdentificationData;
 use Stormannsgal\App\DTO\JwtTokenConfig;
 use Stormannsgal\App\Service\RefreshTokenService;
-use Stormannsgal\Mock\Constants\Token;
+use Stormannsgal\UnitTest\Mock\Constants\Token;
 
 class RefreshTokenServiceTest extends TestCase
 {

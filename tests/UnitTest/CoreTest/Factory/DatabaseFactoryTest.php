@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\CoreTest\Factory;
+namespace Stormannsgal\UnitTest\CoreTest\Factory;
 
 use PDO;
 use PDOException;
@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Stormannsgal\Core\Factory\DatabaseFactory;
-use Stormannsgal\Mock\MockContainer;
+use Stormannsgal\UnitTest\Mock\MockContainer;
 
 class DatabaseFactoryTest extends TestCase
 {

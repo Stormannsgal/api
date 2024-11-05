@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\Mock\Entity;
+namespace Stormannsgal\UnitTest\Mock\Entity;
 
 use DateTimeImmutable;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 use Stormannsgal\Core\Entity\AccountInterface;
 use Stormannsgal\Core\Type\Email;
-use Stormannsgal\Mock\Constants\Account;
+use Stormannsgal\UnitTest\Mock\Constants\Account;
 
 class MockAccount implements AccountInterface
 {

@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\AppTest\Middleware;
+namespace Stormannsgal\UnitTest\AppTest\Middleware;
 
 use Helmich\JsonAssert\JsonAssertions;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Stormannsgal\FunctionalTest\JsonRequestHelper;
-use Stormannsgal\Mock\MockRequestHandler;
-use Stormannsgal\Mock\MockServerRequest;
+use Stormannsgal\UnitTest\Mock\MockRequestHandler;
+use Stormannsgal\UnitTest\Mock\MockServerRequest;
+use Stormannsgal\UnitTest\JsonRequestHelper;
 
 abstract class AbstractTestMiddleware extends TestCase
 {

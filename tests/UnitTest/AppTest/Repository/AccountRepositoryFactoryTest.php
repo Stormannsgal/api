@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace AppTest\Repository;
+namespace Stormannsgal\UnitTest\AppTest\Repository;
 
 use PHPUnit\Framework\TestCase;
 use Stormannsgal\App\Repository\AccountRepositoryFactory;
 use Stormannsgal\Core\Repository\AccountRepositoryInterface;
 use Stormannsgal\Core\Store\AccountStoreInterface;
-use Stormannsgal\Mock\MockContainer;
-use Stormannsgal\Mock\Table\MockAccountTable;
+use Stormannsgal\UnitTest\Mock\MockContainer;
+use Stormannsgal\UnitTest\Mock\Table\MockAccountTable;
 
 class AccountRepositoryFactoryTest extends TestCase
 {

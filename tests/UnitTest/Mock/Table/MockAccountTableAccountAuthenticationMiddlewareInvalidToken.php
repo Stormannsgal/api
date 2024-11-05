@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\Mock\Table;
+namespace Stormannsgal\UnitTest\Mock\Table;
 
 use InvalidArgumentException;
 use Ramsey\Uuid\UuidInterface;
@@ -11,8 +11,8 @@ use Stormannsgal\Core\Entity\AccountInterface;
 use Stormannsgal\Core\Exception\DuplicateEntryException;
 use Stormannsgal\Core\Store\AccountStoreInterface;
 use Stormannsgal\Core\Type\Email;
-use Stormannsgal\Mock\Constants\Account;
-use Stormannsgal\Mock\Database\MockQuery;
+use Stormannsgal\UnitTest\Mock\Constants\Account;
+use Stormannsgal\UnitTest\Mock\Database\MockQuery;
 
 class MockAccountTableAccountAuthenticationMiddlewareInvalidToken extends AccountTable implements AccountStoreInterface
 {

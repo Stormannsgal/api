@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace AppTest\Repository;
+namespace Stormannsgal\UnitTest\AppTest\Repository;
 
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
@@ -12,9 +12,9 @@ use Stormannsgal\Core\Entity\AccountAccessAuthCollectionInterface;
 use Stormannsgal\Core\Entity\AccountAccessAuthInterface;
 use Stormannsgal\Core\Exception\DuplicateEntryException;
 use Stormannsgal\Core\Repository\AccountAccessAuthRepositoryInterface;
-use Stormannsgal\Mock\Constants\AccountAccessAuth;
-use Stormannsgal\Mock\Table\MockAccountAccessAuthTable;
-use Stormannsgal\Mock\Table\MockAccountAccessAuthTableFailed;
+use Stormannsgal\UnitTest\Mock\Constants\AccountAccessAuth;
+use Stormannsgal\UnitTest\Mock\Table\MockAccountAccessAuthTable;
+use Stormannsgal\UnitTest\Mock\Table\MockAccountAccessAuthTableFailed;
 
 class AccountAccessAuthRepositoryTest extends TestCase
 {

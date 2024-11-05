@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\Mock\Repository;
+namespace Stormannsgal\UnitTest\Mock\Repository;
 
 use Stormannsgal\App\Repository\AccountAccessAuthRepository;
-use Stormannsgal\Mock\Table\MockAccountAccessAuthTable;
+use Stormannsgal\UnitTest\Mock\Table\MockAccountAccessAuthTable;
 
 readonly class MockAccountAccessAuthRepository extends AccountAccessAuthRepository
 {

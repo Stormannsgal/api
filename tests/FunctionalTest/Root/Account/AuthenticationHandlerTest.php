@@ -6,7 +6,7 @@ use Fig\Http\Message\StatusCodeInterface as HTTP;
 use Laminas\Diactoros\ServerRequest;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Stormannsgal\FunctionalTest\AbstractFunctional;
-use Stormannsgal\Mock\Constants\Account;
+use Stormannsgal\UnitTest\Mock\Constants\Account;
 
 use function rand;
 

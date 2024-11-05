@@ -1,13 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace AppTest\Hydrator;
+namespace Stormannsgal\UnitTest\AppTest\Hydrator;
 
 use PHPUnit\Framework\TestCase;
-use Stormannsgal\App\Entity\AccountCollection;
 use Stormannsgal\App\Hydrator\AccountHydrator;
 use Stormannsgal\Core\Entity\AccountCollectionInterface;
 use Stormannsgal\Core\Entity\AccountInterface;
-use Stormannsgal\Mock\Constants\Account;
+use Stormannsgal\UnitTest\Mock\Constants\Account;
 
 class AccountHydratorTest extends TestCase
 {

@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\AppTest\Middleware;
+namespace Stormannsgal\UnitTest\AppTest\Middleware;
 
 use Fig\Http\Message\StatusCodeInterface;
 use Laminas\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ResponseInterface;
 use Stormannsgal\App\Middleware\AuthenticationValidationMiddleware;
-use Stormannsgal\Mock\Validator\MockAuthenticationValidator;
-use Stormannsgal\Mock\Validator\MockAuthenticationValidatorFailed;
+use Stormannsgal\UnitTest\Mock\Validator\MockAuthenticationValidator;
+use Stormannsgal\UnitTest\Mock\Validator\MockAuthenticationValidatorFailed;
 
 class AuthenticationValidationMiddlewareTest extends AbstractTestMiddleware
 {

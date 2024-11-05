@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\AppTest\Middleware;
+namespace Stormannsgal\UnitTest\AppTest\Middleware;
 
 use Laminas\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Stormannsgal\App\Middleware\ClientIdentificationMiddleware;
-use Stormannsgal\Mock\Service\MockClientIdentificationService;
+use Stormannsgal\UnitTest\Mock\Service\MockClientIdentificationService;
 
 class ClientIdentificationMiddlewareTest extends AbstractTestMiddleware
 {

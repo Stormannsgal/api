@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\AppTest\Middleware;
+namespace Stormannsgal\UnitTest\AppTest\Middleware;
 
 use Laminas\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ResponseInterface;
@@ -8,7 +8,7 @@ use Psr\Http\Server\MiddlewareInterface;
 use Stormannsgal\App\DTO\ClientIdentification;
 use Stormannsgal\App\DTO\ClientIdentificationData;
 use Stormannsgal\App\Middleware\GenerateRefreshTokenMiddleware;
-use Stormannsgal\Mock\Service\MockRefreshTokenService;
+use Stormannsgal\UnitTest\Mock\Service\MockRefreshTokenService;
 
 class GenerateRefreshTokenMiddlewareTest extends AbstractTestMiddleware
 {
