@@ -10,7 +10,7 @@ interface AccountInterface
 {
     public const string AUTHENTICATED = 'account.authenticated.class';
 
-    public function getId(): int;
+    public function getId(): ?int;
 
     public function getUuid(): UuidInterface;
 

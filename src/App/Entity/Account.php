@@ -14,7 +14,7 @@ readonly class Account implements AccountInterface, Collectible
     use CloneReadonlyClassWith;
 
     public function __construct(
-        private int $id,
+        private ?int $id,
         private UuidInterface $uuid,
         private ?string $name,
         private string $password,
@@ -24,7 +24,7 @@ readonly class Account implements AccountInterface, Collectible
     ) {
     }
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
