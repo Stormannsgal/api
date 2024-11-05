@@ -2,16 +2,29 @@
 
 namespace Stormannsgal\FunctionalTest\Root\Account;
 
+use DateTimeImmutable;
 use Fig\Http\Message\StatusCodeInterface as HTTP;
 use Laminas\Diactoros\ServerRequest;
+use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Attributes\DataProvider;
+use Ramsey\Uuid\Uuid;
+use Stormannsgal\App\Service\AccessTokenService;
+use Stormannsgal\App\Service\RefreshTokenService;
+use Stormannsgal\Core\Repository\AccountRepositoryInterface;
+use Stormannsgal\Core\Type\Email;
 use Stormannsgal\FunctionalTest\AbstractFunctional;
+use Stormannsgal\UnitTest\JsonRequestHelper;
 use Stormannsgal\UnitTest\Mock\Constants\Account;
 
+use function password_hash;
 use function rand;
+
+use const PASSWORD_DEFAULT;
 
 class AuthenticationHandlerTest extends AbstractFunctional
 {
+    use JsonRequestHelper;
+
     #[DataProvider('validAccountDataProvider')]
     public function testCanAuthenticate(string $email, string $password): void
     {
@@ -82,6 +95,52 @@ class AuthenticationHandlerTest extends AbstractFunctional
 
         $response = $this->app->handle($request);
         $this->assertSame(HTTP::STATUS_UNAUTHORIZED, $response->getStatusCode());
+    }
+
+    public function testResponseHasValidAccessAndRefreshToken(): void
+    {
+        /** @var AccountRepositoryInterface $accountRepository */
+        $accountRepository = $this->container->get(AccountRepositoryInterface::class);
+
+        /** @var AccessTokenService $accessTokenService */
+        $accessTokenService = $this->container->get(AccessTokenService::class);
+
+        /** @var RefreshTokenService $refreshTokenService */
+        $refreshTokenService = $this->container->get(RefreshTokenService::class);
+
+        $account = new \Stormannsgal\App\Entity\Account(
+            null,
+            Uuid::uuid7(),
+            'I see your Token',
+            password_hash('I see your Token', PASSWORD_DEFAULT),
+            new Email('iseeyourtoken@example.com'),
+            new DateTimeImmutable(),
+            new DateTimeImmutable()
+        );
+        $accountRepository->insert($account);
+
+        $request = new ServerRequest(
+            uri: '/api/account/authentication',
+            method: 'POST'
+        );
+        $request = $request->withParsedBody(
+            ['email' => $account->getEmail()->toString(), 'password' => 'I see your Token']
+        );
+
+        $response = $this->app->handle($request);
+        $content = $this->getContentAsJson($response);
+
+        $this->assertSame(HTTP::STATUS_OK, $response->getStatusCode());
+        $this->assertThat($response, $this->bodyMatchesJson([
+            'accessToken' => Assert::isType('string'),
+            'refreshToken' => Assert::isType('string'),
+        ]));
+
+        $isAccessToken = $accessTokenService->isValid($content['accessToken']);
+        $isRefreshToken = $refreshTokenService->isValid($content['refreshToken']);
+
+        $this->assertTrue($isAccessToken);
+        $this->assertTrue($isRefreshToken);
     }
 
     public static function validAccountDataProvider(): array
