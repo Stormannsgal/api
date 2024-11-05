@@ -18,6 +18,7 @@ use Psr\Container\ContainerInterface;
 use Stormannsgal\App\Middleware\AccountAuthenticationMiddleware;
 use Stormannsgal\App\Middleware\ClientIdentificationMiddleware;
 use Stormannsgal\Core\Middleware\RouteNotFoundMiddleware;
+use Mezzio\Cors\Middleware\CorsMiddleware;
 
 /**
  * Setup middleware pipeline:
@@ -29,6 +30,7 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
         ServerUrlMiddleware::class,
         BodyParamsMiddleware::class,
 
+        CorsMiddleware::class,
         RouteMiddleware::class,
 
         ImplicitHeadMiddleware::class,
