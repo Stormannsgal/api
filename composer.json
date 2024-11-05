@@ -85,10 +85,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Stormannsgal\\AppTest\\": "tests/UnitTest/AppTest/",
-      "Stormannsgal\\CoreTest\\": "tests/UnitTest/CoreTest/",
-      "Stormannsgal\\GameTest\\": "tests/UnitTest/GameTest/",
-      "Stormannsgal\\Mock\\": "tests/UnitTest/Mock/",
+      "Stormannsgal\\UnitTest\\": "tests/UnitTest/",
       "Stormannsgal\\FunctionalTest\\": "tests/FunctionalTest/"
     }
   },

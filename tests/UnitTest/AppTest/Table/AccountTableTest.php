@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\AppTest\Table;
+namespace Stormannsgal\UnitTest\AppTest\Table;
 
 use Envms\FluentPDO\Exception;
 use InvalidArgumentException;
@@ -14,9 +14,9 @@ use Stormannsgal\Core\Entity\AccountInterface;
 use Stormannsgal\Core\Exception\DuplicateEntryException;
 use Stormannsgal\Core\Store\AccountStoreInterface;
 use Stormannsgal\Core\Type\Email;
-use Stormannsgal\Mock\Constants\Account;
-use Stormannsgal\Mock\Database\MockQuery;
-use Stormannsgal\Mock\Database\MockQueryFailed;
+use Stormannsgal\UnitTest\Mock\Constants\Account;
+use Stormannsgal\UnitTest\Mock\Database\MockQuery;
+use Stormannsgal\UnitTest\Mock\Database\MockQueryFailed;
 
 class AccountTableTest extends TestCase
 {

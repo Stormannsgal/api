@@ -1,15 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\AppTest\Service;
+namespace Stormannsgal\UnitTest\AppTest\Service;
 
 use DomainException;
 use PHPUnit\Framework\TestCase;
 use Stormannsgal\App\DTO\JwtTokenConfig;
 use Stormannsgal\App\Service\AccessTokenService;
-use Stormannsgal\App\Service\RefreshTokenService;
 use Stormannsgal\Core\Entity\AccountInterface;
-use Stormannsgal\Mock\Constants\Token;
-use Stormannsgal\Mock\Entity\MockAccount;
+use Stormannsgal\UnitTest\Mock\Constants\Token;
+use Stormannsgal\UnitTest\Mock\Entity\MockAccount;
 
 class AccessTokenServiceTest extends TestCase
 {

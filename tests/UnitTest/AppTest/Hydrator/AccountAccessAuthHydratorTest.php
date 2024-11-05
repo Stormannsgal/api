@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\AppTest\Hydrator;
+namespace Stormannsgal\UnitTest\AppTest\Hydrator;
 
 use PHPUnit\Framework\TestCase;
 use Stormannsgal\App\Hydrator\AccountAccessAuthHydrator;
 use Stormannsgal\Core\Entity\AccountAccessAuthCollectionInterface;
 use Stormannsgal\Core\Entity\AccountAccessAuthInterface;
-use Stormannsgal\Mock\Constants\AccountAccessAuth;
+use Stormannsgal\UnitTest\Mock\Constants\AccountAccessAuth;
 
 class AccountAccessAuthHydratorTest extends TestCase
 {

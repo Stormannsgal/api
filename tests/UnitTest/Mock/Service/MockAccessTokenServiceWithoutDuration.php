@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\Mock\Service;
+namespace Stormannsgal\UnitTest\Mock\Service;
 
 use Firebase\JWT\JWT;
 use Ramsey\Uuid\UuidInterface;

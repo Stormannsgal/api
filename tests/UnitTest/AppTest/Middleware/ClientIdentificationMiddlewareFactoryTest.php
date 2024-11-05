@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\AppTest\Middleware;
+namespace Stormannsgal\UnitTest\AppTest\Middleware;
 
 use PHPUnit\Framework\TestCase;
 use Stormannsgal\App\Middleware\ClientIdentificationMiddleware;
 use Stormannsgal\App\Middleware\ClientIdentificationMiddlewareFactory;
 use Stormannsgal\App\Service\ClientIdentificationService;
-use Stormannsgal\Mock\MockContainer;
-use Stormannsgal\Mock\Service\MockClientIdentificationService;
+use Stormannsgal\UnitTest\Mock\MockContainer;
+use Stormannsgal\UnitTest\Mock\Service\MockClientIdentificationService;
 
 class ClientIdentificationMiddlewareFactoryTest extends TestCase
 {

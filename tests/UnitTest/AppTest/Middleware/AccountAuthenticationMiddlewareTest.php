@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\AppTest\Middleware;
+namespace Stormannsgal\UnitTest\AppTest\Middleware;
 
 use Fig\Http\Message\StatusCodeInterface as HTTP;
 use Laminas\Diactoros\Response\JsonResponse;
@@ -11,12 +11,12 @@ use Stormannsgal\App\Middleware\AccountAuthenticationMiddleware;
 use Stormannsgal\App\Service\AccessTokenService;
 use Stormannsgal\Core\Repository\AccountRepositoryInterface;
 use Stormannsgal\FunctionalTest\Mock\NullLogger;
-use Stormannsgal\Mock\Constants\Account;
-use Stormannsgal\Mock\MockAccountAuthenticationMiddlewareRequestHandler;
-use Stormannsgal\Mock\Repository\MockAccountRepository;
-use Stormannsgal\Mock\Repository\MockAccountRepositoryAccountAuthenticationMiddlewareInvalidToken;
-use Stormannsgal\Mock\Service\MockAccessTokenService;
-use Stormannsgal\Mock\Service\MockAccessTokenServiceWithoutDuration;
+use Stormannsgal\UnitTest\Mock\Constants\Account;
+use Stormannsgal\UnitTest\Mock\MockAccountAuthenticationMiddlewareRequestHandler;
+use Stormannsgal\UnitTest\Mock\Repository\MockAccountRepository;
+use Stormannsgal\UnitTest\Mock\Repository\MockAccountRepositoryAccountAuthenticationMiddlewareInvalidToken;
+use Stormannsgal\UnitTest\Mock\Service\MockAccessTokenService;
+use Stormannsgal\UnitTest\Mock\Service\MockAccessTokenServiceWithoutDuration;
 
 use function json_decode;
 use function property_exists;

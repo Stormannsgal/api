@@ -1,15 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\AppTest\Middleware;
+namespace Stormannsgal\UnitTest\AppTest\Middleware;
 
 use Fig\Http\Message\StatusCodeInterface;
 use Laminas\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Stormannsgal\App\Middleware\AuthenticationMiddleware;
-use Stormannsgal\Mock\Constants\Account;
-use Stormannsgal\Mock\Repository\MockAccountRepository;
-use Stormannsgal\Mock\Service\MockAuthenticationService;
+use Stormannsgal\UnitTest\Mock\Constants\Account;
+use Stormannsgal\UnitTest\Mock\Repository\MockAccountRepository;
+use Stormannsgal\UnitTest\Mock\Service\MockAuthenticationService;
 
 class AuthenticationMiddlewareTest extends AbstractTestMiddleware
 {

@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\AppTest\Middleware;
+namespace Stormannsgal\UnitTest\AppTest\Middleware;
 
 use Laminas\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Stormannsgal\App\Middleware\GenerateAccessTokenMiddleware;
 use Stormannsgal\Core\Entity\AccountInterface;
-use Stormannsgal\Mock\Entity\MockAccount;
-use Stormannsgal\Mock\Service\MockAccessTokenService;
+use Stormannsgal\UnitTest\Mock\Entity\MockAccount;
+use Stormannsgal\UnitTest\Mock\Service\MockAccessTokenService;
 
 class GenerateAccessTokenMiddlewareTest extends AbstractTestMiddleware
 {

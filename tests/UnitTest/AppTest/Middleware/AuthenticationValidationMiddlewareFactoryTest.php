@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\AppTest\Middleware;
+namespace Stormannsgal\UnitTest\AppTest\Middleware;
 
 use PHPUnit\Framework\TestCase;
 use Stormannsgal\App\Middleware\AuthenticationValidationMiddleware;
 use Stormannsgal\App\Middleware\AuthenticationValidationMiddlewareFactory;
 use Stormannsgal\Core\Validator\AuthenticationValidator;
-use Stormannsgal\Mock\MockContainer;
-use Stormannsgal\Mock\Validator\MockAuthenticationValidator;
+use Stormannsgal\UnitTest\Mock\MockContainer;
+use Stormannsgal\UnitTest\Mock\Validator\MockAuthenticationValidator;
 
 class AuthenticationValidationMiddlewareFactoryTest extends TestCase
 {

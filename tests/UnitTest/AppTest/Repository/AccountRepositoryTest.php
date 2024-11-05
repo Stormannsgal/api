@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\AppTest\Repository;
+namespace Stormannsgal\UnitTest\AppTest\Repository;
 
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
@@ -11,12 +11,11 @@ use Stormannsgal\App\Repository\AccountRepository;
 use Stormannsgal\Core\Entity\AccountCollectionInterface;
 use Stormannsgal\Core\Entity\AccountInterface;
 use Stormannsgal\Core\Exception\DuplicateEntryException;
-use Stormannsgal\Core\Exception\EmptyResultException;
 use Stormannsgal\Core\Repository\AccountRepositoryInterface;
 use Stormannsgal\Core\Type\Email;
-use Stormannsgal\Mock\Constants\Account;
-use Stormannsgal\Mock\Table\MockAccountTable;
-use Stormannsgal\Mock\Table\MockAccountTableFailed;
+use Stormannsgal\UnitTest\Mock\Constants\Account;
+use Stormannsgal\UnitTest\Mock\Table\MockAccountTable;
+use Stormannsgal\UnitTest\Mock\Table\MockAccountTableFailed;
 
 class AccountRepositoryTest extends TestCase
 {

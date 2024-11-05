@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\AppTest\Handler;
+namespace Stormannsgal\UnitTest\AppTest\Handler;
 
 use Fig\Http\Message\StatusCodeInterface as HTTP;
 use Laminas\Diactoros\Response\JsonResponse;
 use Stormannsgal\App\DTO\AccessToken;
 use Stormannsgal\App\DTO\RefreshToken;
 use Stormannsgal\App\Handler\Account\AuthenticationHandler;
-use Stormannsgal\Mock\Constants\Token;
+use Stormannsgal\UnitTest\Mock\Constants\Token;
 
 use function json_decode;
 use function property_exists;

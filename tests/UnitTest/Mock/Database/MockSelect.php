@@ -1,13 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\Mock\Database;
+namespace Stormannsgal\UnitTest\Mock\Database;
 
 use Envms\FluentPDO\Queries\Select;
 use Envms\FluentPDO\Query;
 use PDO;
-use Stormannsgal\Mock\Constants\Account;
-
-use Stormannsgal\Mock\Constants\AccountAccessAuth;
+use Stormannsgal\UnitTest\Mock\Constants\Account;
+use Stormannsgal\UnitTest\Mock\Constants\AccountAccessAuth;
 
 use function array_key_exists;
 

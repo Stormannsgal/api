@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace AppTest\Table;
+namespace Stormannsgal\UnitTest\AppTest\Table;
 
 use Envms\FluentPDO\Query;
 use PHPUnit\Framework\TestCase;
@@ -8,8 +8,8 @@ use Stormannsgal\App\Hydrator\AccountAccessAuthHydrator;
 use Stormannsgal\App\Hydrator\AccountAccessAuthHydratorInterface;
 use Stormannsgal\App\Table\AccountAccessAuthTable;
 use Stormannsgal\App\Table\AccountAccessAuthTableFactory;
-use Stormannsgal\Mock\Database\MockQuery;
-use Stormannsgal\Mock\MockContainer;
+use Stormannsgal\UnitTest\Mock\Database\MockQuery;
+use Stormannsgal\UnitTest\Mock\MockContainer;
 
 class AccountAccessAuthTableFactoryTest extends TestCase
 {

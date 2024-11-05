@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\AppTest\Service;
+namespace Stormannsgal\UnitTest\AppTest\Service;
 
 use PHPUnit\Framework\TestCase;
 use Stormannsgal\App\Service\AuthenticationService;
-use Stormannsgal\Mock\Constants\Account;
+use Stormannsgal\UnitTest\Mock\Constants\Account;
 
 class AuthenticationServiceTest extends TestCase
 {

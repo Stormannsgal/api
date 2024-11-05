@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\Mock\Constants;
+namespace Stormannsgal\UnitTest\Mock\Constants;
 
 class Account
 {

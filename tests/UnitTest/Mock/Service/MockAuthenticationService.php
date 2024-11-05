@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\Mock\Service;
+namespace Stormannsgal\UnitTest\Mock\Service;
 
 use Stormannsgal\App\Service\AuthenticationService;
-use Stormannsgal\Mock\Constants\Account;
+use Stormannsgal\UnitTest\Mock\Constants\Account;
 
 readonly class MockAuthenticationService extends AuthenticationService
 {

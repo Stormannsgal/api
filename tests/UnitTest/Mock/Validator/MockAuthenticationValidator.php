@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Stormannsgal\Mock\Validator;
+namespace Stormannsgal\UnitTest\Mock\Validator;
 
 use Stormannsgal\Core\Validator\AuthenticationValidator;
 use Stormannsgal\Core\Validator\Input\EmailInput;
