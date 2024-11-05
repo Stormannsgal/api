@@ -35,7 +35,7 @@ abstract class AbstractFunctional extends TestCase
 
     public static function tearDownAfterClass(): void
     {
-        system('php ' . dirname(__FILE__) . '/../bootstrap.php');
+        system('php ' . dirname(__FILE__) . '/bootstrap.php');
     }
 
     protected function initContainer(): void
