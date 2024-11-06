@@ -34,6 +34,14 @@ jobs:
       - name: Run PHP Linter
         run: composer run-script phplint
 
+      - name: Check Info Failure
+        uses: rjstone/discord-webhook-notify@v1.0.4
+        with:
+          severity: error
+          details: PHP Lint failed.
+          webhookUrl: ${{ secrets.WEBHOOK_DISCORD_URL }}
+        if: failure()
+
   phpstan:
     name: PHP Stan
     runs-on: ubuntu-20.04
@@ -59,6 +67,14 @@ jobs:
       - name: Run PHP Stan
         run: composer run-script phpstan
 
+      - name: Check Info Failure
+        uses: rjstone/discord-webhook-notify@v1.0.4
+        with:
+          severity: error
+          details: PHP Stan failed.
+          webhookUrl: ${{ secrets.WEBHOOK_DISCORD_URL }}
+        if: failure()
+
   phpcs:
     name: PHP CodeSniffer
     runs-on: ubuntu-20.04
@@ -83,6 +99,14 @@ jobs:
 
       - name: Run PHP Codesniffer
         run: composer run-script phpcs
+
+      - name: Check Info Failure
+        uses: rjstone/discord-webhook-notify@v1.0.4
+        with:
+          severity: error
+          details: CodeSniffer failed.
+          webhookUrl: ${{ secrets.WEBHOOK_DISCORD_URL }}
+        if: failure()
 
   phpunit:
     name: PHP Unit Test
@@ -112,6 +136,14 @@ jobs:
 
       - name: Run PHP Unit Test
         run: composer run-script unittest
+
+      - name: Test Info Failure
+        uses: rjstone/discord-webhook-notify@v1.0.4
+        with:
+          severity: error
+          details: PHP Unit Test failed.
+          webhookUrl: ${{ secrets.WEBHOOK_DISCORD_URL }}
+        if: failure()
 
   phpfunctional:
     name: PHP Functional Test
@@ -167,3 +199,36 @@ jobs:
 
       - name: Run PHP Functional Test
         run: composer run-script functionaltest
+
+      - name: Test Info Failure
+        uses: rjstone/discord-webhook-notify@v1.0.4
+        with:
+          severity: error
+          details: Functional Test failed.
+          webhookUrl: ${{ secrets.WEBHOOK_DISCORD_URL }}
+        if: failure()
+
+  message:
+    needs:
+      - phpcs
+      - phplint
+      - phpstan
+      - phpunit
+      - phpfunctional
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Info Success
+        uses: rjstone/discord-webhook-notify@v1.0.4
+        with:
+          severity: info
+          details: Checks successfully executed on API.
+          webhookUrl: ${{ secrets.WEBHOOK_DISCORD_URL }}
+        if: success()
+
+      - name: Check Info Failure
+        uses: rjstone/discord-webhook-notify@v1.0.4
+        with:
+          severity: error
+          details: Incorrect checks during the API check.
+          webhookUrl: ${{ secrets.WEBHOOK_DISCORD_URL }}
+        if: failure()
