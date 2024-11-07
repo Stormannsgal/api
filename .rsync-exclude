@@ -1,10 +1,14 @@
 /.github
 /.laminas-ci
 /bin/
+/config/.gitignore
 /config/*.dist
 /config/*.tpl
 /config/autoload/
 /database/
+/data/.gitignore
+/data/cache/
+/data/log/
 /docker/
 /docs/
 /public/.*
@@ -16,6 +20,7 @@
 /*.json
 /*.lock
 /*.yml
+/*.yaml
 /*.xml
 /*.neon
 /*.md
