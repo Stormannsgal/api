@@ -18,6 +18,7 @@
 /docs/
 /public/.*
 /public/*.php
+/public/*.html
 /public/assets/
 /tests/
 /.*
