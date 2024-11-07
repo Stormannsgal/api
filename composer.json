@@ -59,6 +59,7 @@
     "mezzio/mezzio-cors": "^1.13",
     "mezzio/mezzio-fastroute": "^3.0.3",
     "mezzio/mezzio-helpers": "^5.7",
+    "mezzio/mezzio-tooling": "^2.8",
     "ramsey/uuid": "^4.7",
     "zircote/swagger-php": "^4.7"
   },
@@ -67,7 +68,6 @@
     "helmich/phpunit-json-assert": "^3.5",
     "helmich/phpunit-psr7-assert": "^4.4",
     "laminas/laminas-development-mode": "^3.3.0",
-    "mezzio/mezzio-tooling": "^2.8",
     "overtrue/phplint": "^9.0",
     "phpstan/phpstan": "^1.10",
     "phpstan/phpstan-deprecation-rules": "^1.2",
