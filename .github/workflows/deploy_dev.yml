@@ -226,7 +226,7 @@ jobs:
       - name: rsync deployments
         uses: burnett01/rsync-deployments@7.0.1
         with:
-          switches: -avz --no-o --no-g --no-perms --no-t --omit-dir-times --delete --exclude '*' --include-from='.rsync-include'
+          switches: -avz --no-o --no-g --no-perms --no-t --omit-dir-times --delete --filter='merge .rsync-filter'
           path: /
           remote_path: ${{ secrets.DEPLOY_PATH_API_DEV }}
           remote_host: ${{ secrets.DEPLOY_HOST }}
