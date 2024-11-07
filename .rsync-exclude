@@ -13,7 +13,6 @@
 /config/autoload/migrations.*
 /database/
 /data/.gitignore
-/data/cache/**
 /data/log/**
 /docker/
 /docs/
