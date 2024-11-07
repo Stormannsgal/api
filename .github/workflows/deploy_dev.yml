@@ -1,12 +1,8 @@
 name: Codestyle and Unittest
 on:
   push:
-    branches:
-      - '*'
-      - '!master'
-      - '!develop'
-    paths:
-      - "**.php"
+    branches: [ "develope" ]
+  workflow_dispatch:
 
 jobs:
   phplint:
@@ -208,27 +204,49 @@ jobs:
           webhookUrl: ${{ secrets.WEBHOOK_DISCORD_URL }}
         if: failure()
 
-  message:
+  deployment_of_stormannsgal_to_develope:
+    name: Deploy Build
     needs:
       - phpcs
       - phplint
       - phpstan
       - phpunit
       - phpfunctional
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
-      - name: Check Info Success
+      - name: Get latest code
+        uses: actions/checkout@v4.1.1
+
+      - name: Install Composer Dependencies
+        run: composer install --prefer-dist --no-progress --no-dev
+
+      - name: Run create openapi Data
+        run: composer run-script openapi
+
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -avz --no-o --no-g --no-perms --no-t --omit-dir-times --delete --exclude '*' --include-from='.rsync-include'
+          path: /
+          remote_path: ${{ secrets.DEPLOY_PATH_API_DEV }}
+          remote_host: ${{ secrets.DEPLOY_HOST }}
+          remote_port: ${{ secrets.DEPLOY_PORT }}
+          remote_user: ${{ secrets.DEPLOY_USER }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}
+          remote_key_pass: ${{ secrets.DEPLOY_KEY_PASS }}
+
+      - name: Deploay Info Success
         uses: rjstone/discord-webhook-notify@v1.0.4
         with:
           severity: info
-          details: Checks successfully executed on API.
+          details: Successful deployment on build https://dev.stormannsgal.de
           webhookUrl: ${{ secrets.WEBHOOK_DISCORD_URL }}
         if: success()
 
-      - name: Check Info Failure
+      - name: Deplay Info Failure
         uses: rjstone/discord-webhook-notify@v1.0.4
         with:
           severity: error
-          details: Incorrect checks during the API check.
+          details: Failure deployment on develope.
           webhookUrl: ${{ secrets.WEBHOOK_DISCORD_URL }}
         if: failure()
