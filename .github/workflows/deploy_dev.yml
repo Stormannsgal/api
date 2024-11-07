@@ -1,4 +1,4 @@
-name: Codestyle and Unittest
+name: Deployment on Developement
 on:
   push:
     branches: [ "develope" ]
